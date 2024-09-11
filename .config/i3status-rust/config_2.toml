@@ -1,0 +1,117 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "semi-native"
+[theme.overrides]
+idle_bg = "#000000"
+idle_fg = "#afafaf"
+separator = ""
+
+[icons]
+icons = "material-nf"
+#[icons.overrides]
+#bat = ["|E|", "|_|", "|=|", "|F|"]
+#bat_charging = "|^| "
+
+#[[block]]
+#block = "focused_window"
+#[block.format]
+#full = " $title.str(max_w:80) |"
+#short = " $title.str(max_w:20) |"
+
+[[block]]
+block = "music"
+format = " $icon {$combo.str(max_w:20,rot_interval:0.5) $prev $play $next |}"
+interface_name_exclude = [".*kdeconnect.*", "mpd"]
+[[block.click]]
+button = "left"
+action = "play_pause"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = " $icon $utilization.eng(w:4) "
+format_alt = " $icon $frequency{ $boost|} "
+
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon /: $available.eng(w:2) "
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents.eng(w:2) "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+
+#[[block]]
+#block = "backlight"
+#device = "intel_backlight"
+
+#[[block]]
+#block = "hueshift"
+#step = 50
+#click_temp = 3500
+#format = " 󱎴 $temperature "
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "net"
+format = " $icon {$signal_strength|Wired connection} ( $speed_down.eng(prefix:K, w:4))"
+[[block.click]]
+button = "left"
+cmd = "exec gnome-terminal -- nmtui"
+
+[[block]]
+block = "temperature"
+format = " $icon $max"
+format_alt = " $icon $min min, $max max, $average avg "
+interval = 10
+chip = "*-isa-*"
+
+[[block]]
+block = "uptime"
+interval = 3600  # update every hour
+
+# Prayer notification
+[[block]]
+block = "custom"
+command = "echo 󰖔 "
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "~/Documents/rust/prayer_notifier/target/release/prayer_notifier"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m/%y %R') "
+
+[[block]]
+block = "notify"
+format = " $icon {($notification_count.eng(w:1))|(0)}"
+driver = "swaync"
+[[block.click]]
+button = "left"
+action = "show"
+[[block.click]]
+button = "right"
+action = "toggle_paused"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage $time "
+full_format = "  "
+driver = "upower"
+[block.theme_overrides]
+idle_fg = "#84FFC1"

@@ -1,0 +1,17 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "semi-native"
+[theme.overrides]
+idle_bg = "#000000"
+idle_fg = "#afafaf"
+separator = ""
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "focused_window"
+[block.format]
+full = " $title.str(max_w:200) |"
+short = " $title.str(max_w:60) |"
