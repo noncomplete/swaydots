@@ -2,6 +2,8 @@
 
 Archlinux dotfiles backup
 
-![screenshot_1](./2024-09-11-18:42:43.png)
+![screenshot_1](./scr0.png)
 
-![screenshot_2](./2024-09-11-18:45:16.png) 
+![screenshot_2](./scr1.png) 
+
+![screenshot_3](./scr2.png) 

@@ -30,6 +30,8 @@ set -x NNN_TMPFILE "/home/noncomplete/.config/nnn/.lastd"
 set -x EDITOR nvim
 set -x NNN_OPTS deH
 set fish_greeting
+set -x CARGO_TARGET_DIR "/home/noncomplete/.cache/cargo"
+set -x SHELL "/usr/bin/fish"
 
 # Zoxide
 zoxide init fish | source
@@ -80,7 +82,7 @@ function n --wraps nnn --description 'support nnn quit and change directory'
     end
 end
 
-function ya
+function y
     set tmp (mktemp -t "yazi-cwd.XXXXX")
     yazi $argv --cwd-file="$tmp"
     if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]

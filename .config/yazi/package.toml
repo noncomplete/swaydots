@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "yazi-rs/plugins:full-border", rev = "c578505" }, { use = "KKV9/compress", rev = "60b24af" }, { use = "pirafrank/what-size", rev = "f08f7f2" }, { use = "h-hg/yamb", rev = "0598b8d" }, { use = "ndtoan96/ouch", rev = "251da69" }, { use = "kirasok/torrent-preview", rev = "76970b6" }, { use = "Ape/open-with-cmd", rev = "8d7abc8" }, { use = "ndtoan96/mime", rev = "0ba4bb2" }, { use = "kirasok/epub-preview", rev = "df04c9d" }, { use = "navysky12/comicthumb", rev = "be6db71" }, { use = "Sonico98/exifaudio", rev = "855ff05" }, { use = "yazi-rs/plugins:jump-to-char", rev = "ad52adf" }, { use = "AnirudhG07/plugins-yazi:copy-file-contents", rev = "f871a9c" }]
+
+[flavor]
+deps = [{ use = "dangooddd/kanagawa", rev = "b32f205" }, { use = "BennyOe/onedark", rev = "fa1da70" }]

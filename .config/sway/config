@@ -24,26 +24,25 @@ set $term wezterm
 # on the original workspace that the command was run on.
 #set $menu bemenu-run -c -l 10 -W 0.75 --fn='Iosevka Nerd Font 14'
 #set $menu kickoff
-set $window_switcher ~/windows.py
 
 
 # borders
-titlebar_border_thickness 0
-titlebar_padding 20 2
-title_align center
-default_border normal
+titlebar_border_thickness 1
+titlebar_padding 20 1
+title_align left
+default_border pixel 2
 hide_edge_borders smart
 
 # Misc
 show_marks yes
 # fonts
-font pango:GeistMonoNerdFont Black 10
+font pango:IosevkaTermSlab Nerd Font ExtraBold 11
 
 ### Gtk settings
 exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+  gsettings set org.gnome.desktop.interface gtk-theme "oomox-CGA"
   gsettings set org.gnome.desktop.interface font-name "Geist Medium 12"
-  gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+  gsettings set org.gnome.desktop.interface icon-theme "oomox-CGA"
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.privacy remember-recent-files 'false'
 }
@@ -53,11 +52,11 @@ exec_always {
 #
 bindsym $mod+n exec leafpad
 bindsym $mod+F3 exec pcmanfm 
-bindsym $mod+Shift+F3 exec nautilus 
-bindsym $mod+F2 exec firefox
-bindsym $mod+Ctrl+k exec ~/Downloads/kanri_0.6.1_amd64.AppImage
-bindsym $mod+F5 exec bash /home/noncomplete/open_spt_cli.sh 
-bindsym $mod+Alt+c exec killall swayidle
+bindsym $mod+F4 exec gnome-terminal --geometry=120x20 -- cava 
+bindsym $mod+Shift+F3 exec wezterm -e fish -c y
+bindsym $mod+F2 exec zen-browser
+bindsym $mod+y exec bash -e /home/noncomplete/launch_yomikiru.sh 
+bindsym $mod+Shift+F2 exec brave-browser-nightly --incognito
 bindsym $mod+Print exec bash -e grimshot --notify save output /home/noncomplete/Pictures/scr/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec bash -e grimshot --notify copy area
 bindsym $mod+Alt+Print exec bash -e grimshot --notify copy area
@@ -65,21 +64,25 @@ bindsym $mod+Alt+n exec swaync-client -t -sw
 bindsym $mod+Insert exec splatmoji copypaste
 bindsym $mod+p exec cliphist list | wofi -I -S dmenu -p cliphist | cliphist decode | wl-copy
 bindsym $mod+Shift+p exec cliphist list | wofi -I -S dmenu -p cliphist_del | cliphist delete
+bindsym $mod+Shift+b exec gnome-terminal -- bash -c /home/noncomplete/book_open.sh 
 # autostart
 exec --no-startup-id /usr/bin/lxqt-policykit-agent
 exec --no-startup-id udiskie
 exec --no-startup-id sway-audio-idle-inhibit
 exec --no-startup-id swaync
-exec --no-startup-id keepassxc
+#exec --no-startup-id keepassxc
 exec --no-startup-id ibus-daemon -d
 exec --no-startup-id fcitx5
 exec wl-paste --watch cliphist store
-exec autotiling-rs -w 1 4 5 6 7 8 9 10
+exec --no-startup-id  bash -c /home/noncomplete/set_sound.sh
+exec autotiling-rs -w 1 3 4 5 6
+exec --no-startup-id fish -c swayrd
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/noncomplete/Pictures/wallhaven-q6jxxq.jpg fill #000000
+#output * bg /home/noncomplete/Pictures/wallhaven-d67ew3.jpg fill #000000
+output * bg /home/noncomplete/Pictures/0027_night-city-lights-sunset.png fill #000000
 
 #
 # Example Monitor configuration:
@@ -89,6 +92,9 @@ output {
   DP-1 position 0,0 mode 1280x1024@60Hz
   eDP-1 position 1280,0 mode 1920x1080@60Hz
 }
+
+bindsym $mod+Shift+x exec swaymsg "output DP-1 disable"
+
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -141,7 +147,9 @@ input type:keyboard {
     # Start your launcher
     set $drun tofi-drun
     bindsym $mod+d exec $drun
-    bindsym $mod+Tab exec $window_switcher
+    bindsym $mod+Tab exec fish -c "swayr switch-window"
+    bindsym $mod+Shift+Tab exec fish -c "swayr steal-window"
+    bindsym $mod+Delete exec fish -c "swayr quit-window"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -215,7 +223,7 @@ input type:keyboard {
     bindsym $mod+Ctrl+left workspace next_on_output
     
     # Assign workspace to an output
-    workspace 3 output DP-1
+    #workspace 3 output DP-1
 #
 # Layout stuff:
 #
@@ -346,10 +354,13 @@ for_window [class="Spotify"] inhibit_idle
 for_window [class="Leafpad"] floating enable
 #wayland
 for_window [app_id="firefox"] inhibit_idle fullscreen
-assign [app_id="org.keepassxc.KeePassXC"] workspace number 3 
-for_window [app_id="mpv"] inhibit_idle fullscreen
+for_window [app_id="org.telegram.desktop"] border 1 px
+for_window [app_id="mpv"] inhibit_idle
 for_window [app_id="org.pwmt.zathura"] inhibit_idle fullscreen
-for_window [app_id="gnome-terminal"] floating enable
+for_window [app_id="wdisplays"] floating enable
+for_window [app_id="org.gnome.Terminal"] floating enable
+for_window [app_id="io.bassi.Amberol"] floating enable
+for_window [app_id="io.bassi.Amberol"] inhibit_idle
 for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [app_id="whatsapp-for-linux"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
@@ -365,26 +376,39 @@ bindsym $mod+m bar mode toggle
 bar {
   output eDP-1
   position top
-  font pango:GeistMonoNerdFont Black 10.5
+  font pango:IosevkaTermSlab Nerd Font ExtraBold 11.5
   status_command i3status-rs
   icon_theme Papirus
   tray_output eDP-1
   status_padding 0
-# colors {
-#     statusline #ffffff
-#     background #000000
-#     inactive_workspace #3C446F #323232 #5c5c5c
-# }
+  colors {
+    background #000000
+
+    focused_workspace  #000000 #000000 #00BFFF
+    active_workspace   #000000 #000000 #555555
+    inactive_workspace #000000 #000000 #3F3F3F
+    urgent_workspace   #000000 #900000 #ffffff
+    binding_mode       #000000 #900000 #ffffff
+  }
 }
 # Bar 2 
 #
 bar {
   output DP-1
   position top
-  font pango:GeistMonoNerdFont Black 10
+  font pango:IosevkaTermSlab Nerd Font ExtraBold 11
   status_command i3status-rs ~/.config/i3status-rust/config_2.toml
   status_padding 0
   icon_theme Papirus
+  colors {
+    background #000000
+    
+    focused_workspace  #000000 #000000 #00BFFF
+    active_workspace   #000000 #000000 #555555
+    inactive_workspace #000000 #000000 #3F3F3F
+    urgent_workspace   #000000 #900000 #ffffff
+    binding_mode       #000000 #900000 #ffffff
+  }
 }
 
 # Btm bar -- only the title
@@ -413,12 +437,12 @@ bar {
 #client.placeholder        #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 ### Colors (catppuccin)
-#class 	                 border 	 background text 	      indicator  child_border
-client.focused           #001527    #001527   #45DDFF     #001527    #001527
-client.focused_inactive  #000000    #000000   $overlay1   #000000    #000000
-client.unfocused         #000000    #000000   $overlay1   #000000    #000000
-client.urgent            $peach     $crust    $peach      $overlay0  $peach
-client.placeholder       $overlay0  $crust    $text       $overlay0  $overlay0
+#class 	                 border 	    background  text 	      indicator  child_border
+client.focused           #00AFFF    #000000   #00AFFF   #00AFFF    #00AFFF
+client.focused_inactive  #000000    #000000   #3F3F3F   #000000    #000000
+client.unfocused         #000000    #000000   #3F3F3F   #000000    #000000
+client.urgent            $peach       $crust      $peach      $overlay0    $peach
+client.placeholder       $overlay0    $crust      $text       $overlay0    $overlay0
 client.background        #000000
 
 

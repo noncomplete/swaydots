@@ -17,7 +17,7 @@ end
 
 -- Spawn a fish shell in login mode
 config.default_prog = { "/usr/bin/fish", "-l" }
-config.font = wezterm.font("GeistMono Nerd Font")
+config.font = wezterm.font("IosevkaTermSlab Mono Nerd Font")
 --config.font_rules = {
 --	{
 --		intensity = "Bold",

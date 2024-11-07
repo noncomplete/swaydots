@@ -4,7 +4,7 @@ icons_format = "{icon}"
 theme = "semi-native"
 [theme.overrides]
 idle_bg = "#000000"
-idle_fg = "#afafaf"
+#idle_fg = "#dfdfdf"
 separator = ""
 
 [icons]
@@ -13,19 +13,24 @@ icons = "material-nf"
 #bat = ["|E|", "|_|", "|=|", "|F|"]
 #bat_charging = "|^| "
 
-#[[block]]
-#block = "focused_window"
-#[block.format]
-#full = " $title.str(max_w:80) |"
-#short = " $title.str(max_w:20) |"
+[[block]]
+block = "focused_window"
+[block.format]
+full = " $title.str(w:25, rot_interval:0.4, rot_separator:'   ') |"
+short = " $title.str(w:25) |"
+[block.theme_overrides]
+idle_bg = "#000000"
+idle_fg = "#00AFFF"
 
 [[block]]
 block = "music"
-format = " $icon {$combo.str(max_w:20,rot_interval:0.5) $prev $play $next |}"
-interface_name_exclude = [".*kdeconnect.*", "mpd"]
+format = " $icon  * $prev $play $next | - "
+interface_name_exclude = [".*kdeconnect.*"]
 [[block.click]]
 button = "left"
 action = "play_pause"
+[block.theme_overrides]
+info_fg = "#00AFFF"
 
 [[block]]
 block = "cpu"
@@ -33,17 +38,28 @@ interval = 1
 format = " $icon $utilization.eng(w:4) "
 format_alt = " $icon $frequency{ $boost|} "
 
-
-[[block]]
-block = "disk_space"
-path = "/"
-info_type = "available"
-alert_unit = "GB"
-interval = 20
-warning = 20.0
-alert = 10.0
-format = " $icon /: $available.eng(w:2) "
-
+#[[block]]
+#block = "disk_space"
+#path = "/"
+#alert_unit = "GB"
+#info_type = "available"
+#interval = 20
+#warning = 20.0
+#alert = 10.0
+#format = " $icon /+Ex:[$available.eng(hide_unit:true)"
+#format_alt = " $icon /+Ex:[$available.eng(hide_unit:true)/$total.eng(hide_unit:true)"
+#
+#
+#[[block]]
+#block = "disk_space"
+#path = "/run/media/noncomplete/the_hoard/"
+#alert_unit = "GB"
+#info_type = "available"
+#alert = 5.0
+#warning = 10.0
+#format = "+$available.eng(hide_unit:true)]"
+#format_alt = "+$available.eng(hide_unit:true)/$total.eng(hide_unit:true)]"
+#
 [[block]]
 block = "memory"
 format = " $icon $mem_used_percents.eng(w:2) "
@@ -79,9 +95,9 @@ format_alt = " $icon $min min, $max max, $average avg "
 interval = 10
 chip = "*-isa-*"
 
-[[block]]
-block = "uptime"
-interval = 3600  # update every hour
+#[[block]]
+#block = "uptime"
+#interval = 3600  # update every hour
 
 # Prayer notification
 [[block]]
@@ -91,6 +107,20 @@ interval = "once"
 [[block.click]]
 button = "left"
 cmd = "~/Documents/rust/prayer_notifier/target/release/prayer_notifier"
+
+[[block]]
+block = "taskwarrior"
+interval = 60
+format = " 󰄹  $count.eng(w:1) tasks "
+format_singular = " 󰄹  1 task "
+format_everything_done = " 󰄸  "
+warning_threshold = 8
+critical_threshold = 15
+[block.theme_overrides]
+warning_fg = "#00A0FF"
+[[block.click]]
+button = "left"
+cmd = "gnome-terminal --geometry=60x20 -- watch -n 60 task"
 
 [[block]]
 block = "time"
@@ -111,7 +141,6 @@ action = "toggle_paused"
 [[block]]
 block = "battery"
 format = " $icon $percentage $time "
-full_format = "  "
-driver = "upower"
+full_format = "   "
 [block.theme_overrides]
-idle_fg = "#84FFC1"
+idle_fg = "#00AFFF"

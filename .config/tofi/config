@@ -13,8 +13,8 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "/usr/share/fonts/GeistMonoNerdFont-Medium.otf"
-
+	font = "/usr/share/fonts/TTF/IosevkaTermSlabNerdFont-Medium.ttf"
+  # font = "IosevkaTermSlab Nerd Font Medium"
 	# Point size of text.
 	font-size = 24
 
@@ -42,7 +42,7 @@
 	# specified via `font`. Disabling font hinting speeds up text
 	# rendering appreciably, but will likely look poor at small font pixel
 	# sizes.
-	hint-font = true
+	hint-font = false
 
 #
 ### Text theming
@@ -102,7 +102,7 @@
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-color = #4087D1
+	selection-color = #00AFFF
 	selection-background = #00000000
 	selection-background-padding = 0
 	selection-background-corner-radius = 0
@@ -117,7 +117,7 @@
 	# Style of the optional text cursor.
 	#
 	# Supported values: bar, block, underscore
-	text-cursor-style = bar
+	text-cursor-style = underscore
 
 	# Color of the text cursor
 	#
@@ -136,7 +136,7 @@
 	#
 	# If unspecified, defaults to a font-dependent value when
 	# text-cursor-style = underscore, or to 2 otherwise.
-	# text-cursor-thickness = 2
+	text-cursor-thickness = 5
 
 #
 ### Text layout

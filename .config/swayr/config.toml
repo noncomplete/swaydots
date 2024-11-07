@@ -1,0 +1,20 @@
+[menu]
+executable = "tofi"
+args = [
+    "--prompt-text=win: ",
+    "--fuzzy-match=true",
+    "--selection-background-padding=5",
+]
+
+[format]
+window_format = '[{app_name:{:.10}...}][{title:{:.20}...}]->[{workspace_name}]'
+indent = '    '
+
+[focus]
+lockin_delay = 750
+
+[misc]
+seq_inhibit = false
+
+[swaymsg_commands]
+include_predefined = true

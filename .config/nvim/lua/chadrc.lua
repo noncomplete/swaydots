@@ -5,8 +5,9 @@
 local M = {}
 
 M.base46 = {
-	theme = "decay",
-
+	theme = "monochrome",
+  transparency = false,
+  theme_toggle = { "monochrome", "oxocarbon" }
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
@@ -15,29 +16,50 @@ M.base46 = {
 
 -- ui stuff
 M.ui = {
-  transparency = true,
-  nvdash = {
-    load_on_startup = true,
-    header = {
-      " █▄ █ █▀█ █▄ █ █▀▀ █▀█ █▀▄▀█ █▀█ █   █▀▀ ▀█▀ █▀▀ ",
-      " █ ▀█ █▄█ █ ▀█ █▄▄ █▄█ █ ▀ █ █▀▀ █▄▄ ██▄  █  ██▄ ",
-    },
-    buttons = {
-      { "  Find File", "Spc f f", "Telescope find_files" },
-      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Bookmarks", "Spc m a", "Telescope marks" },
-      { "  Themes", "Spc t h", "Telescope themes" },
-      { "  Mappings", "Spc c h", "NvCheatsheet" },
-    }
-  },
   statusline = {
-    theme = "default",
+    theme = "vscode_colored",
     separator_style = "block",
   },
   tabufline = {
     enabled = true,
-    lazyload = true,
+    lazyload = false,
+  },
+  cmp = {
+    icons_left = false,
+    lspkind_text = true,
+    style = "default",
+  }
+}
+
+M.nvdash = {
+  load_on_startup = true,
+  header = {
+    " █▄ █ █▀█ █▄ █ █▀▀ █▀█ █▀▄▀█ █▀█ █   █▀▀ ▀█▀ █▀▀ ",
+    " █ ▀█ █▄█ █ ▀█ █▄▄ █▄█ █ ▀ █ █▀▀ █▄▄ ██▄  █  ██▄ ",
+    "                                                 ",
+    "                                                 "
+  },
+  buttons = {
+    {txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
+    {txt = "󰈚  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
+    {txt = "󰈭  Find Word", keys = "Spc f w", cmd =  "Telescope live_grep" },
+    {txt = "  Bookmarks", keys = "Spc m a", cmd =  "Telescope marks" },
+    {txt = "  Themes", keys = "Spc t h", cmd =  "Telescope themes" },
+    {txt = "  Mappings", keys = "Spc c h", cmd =  "NvCheatsheet" },
+
+    { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
+
+    {
+      txt = function()
+        local stats = require("lazy").stats()
+        local ms = math.floor(stats.startuptime) .. " ms"
+        return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+      end,
+        hl = "NvDashLazy",
+        no_gap = true,
+    },
+
+    { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
   }
 }
 
