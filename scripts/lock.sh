@@ -1,18 +1,21 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-swaylock -f \
-	--image ~/Pictures/wallhaven-zm5m7o.jpg \
-	--font 'C059' \
-	--text-color ffffff --clock \
-	--datestr '%F, %a' \
-	--indicator \
-	--indicator-x-position 1700 --indicator-y-position 200 --indicator-radius 100 \
-	--indicator-thickness 5 \
-	--effect-blur 2x2 \
-	--ring-color 000000 \
-	--key-hl-color 880033 \
-	--line-color 00000000 \
-	--inside-color 00000088 \
-	--separator-color 00000000 \
-	--inside-clear-color 00000020 --grace 2 \
-	--time-effects --fade-in 0.5
+#swaylock -f \
+#  --image ~/Pictures/wallhaven-0p5qgj.jpg \
+#  --font 'IosevkaTermSlab Nerd Font' \
+#  --text-color 00AFFF \
+#  --indicator-x-position 200 --indicator-y-position 200 --indicator-radius 100 \
+#  --indicator-thickness 10 \
+#  --indicator-idle-visible \
+#  --ring-color 00409F \
+#  --ring-clear-color 00A0FF \
+#  --key-hl-color 00A0FF \
+#  --line-color 00000000 \
+#  --inside-color 00000088 \
+#  --separator-color 00000000 \
+#  --text-clear-color ffffff \
+#  --text-ver-color ffffff \
+#  --text-wrong-color ff0000 \
+#  --inside-clear-color 000000
+#
+hyprlock &!

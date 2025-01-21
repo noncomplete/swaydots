@@ -1,0 +1,38 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "semi-native"
+[theme.overrides]
+idle_bg = "#000000"
+idle_fg = "#afafaf"
+separator = ""
+
+[icons]
+icons = "material-nf"
+
+#[[block]]
+#block = "focused_window"
+#[block.format]
+#full = " $title.str(max_w:200) |"
+#short = " $title.str(max_w:60) |"
+
+[[block]]
+block = "music"
+format = " $icon { $prev $play $next | }"
+interface_name_exclude = [".*kdeconnect.*"]
+[[block.click]]
+button = "left"
+action = "play_pause"
+[block.theme_overrides]
+info_fg = "#00aaff"
+
+[[block]]
+block = "custom"
+command = "/home/noncomplete/get_mpris_metadata.sh"
+interval = 3
+[[block.click]]
+button = "left"
+cmd = "/home/noncomplete/get_mpris_metadata.sh"
+[block.theme_overrides]
+idle_fg = "#afafaf"
+

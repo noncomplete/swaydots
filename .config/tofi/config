@@ -13,10 +13,10 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "/usr/share/fonts/TTF/IosevkaTermSlabNerdFont-Medium.ttf"
+	font = "ZedMono Nerd Font"
   # font = "IosevkaTermSlab Nerd Font Medium"
 	# Point size of text.
-	font-size = 24
+	font-size = 18
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -171,7 +171,7 @@
 	height = 100%
 
 	# Window background color
-	background-color = #101010E0
+	background-color = #000000E0
 
 	# Width of the border outlines in pixels.
 	outline-width = 0
@@ -191,7 +191,7 @@
 	# Padding between borders and text. Can be pixels or a percentage.
 	padding-top = 10%
 	padding-bottom = 10%
-	padding-left = 20%
+	padding-left = 10%
 	padding-right = 10%
 
 	# Whether to clip text drawing to be within the specified padding. This
@@ -289,7 +289,7 @@
 	# Assume input is plain ASCII, and disable some Unicode handling
 	# functions. This is faster, but means e.g. a search for "e" will not
 	# match "é".
-	ascii-input = false
+	ascii-input = true
 
 #
 ### Inclusion

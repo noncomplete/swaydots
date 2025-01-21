@@ -1,4 +1,5 @@
 icons_format = "{icon}"
+error_format = "  "
 
 [theme]
 theme = "semi-native"
@@ -13,21 +14,12 @@ icons = "material-nf"
 [[block]]
 block = "focused_window"
 [block.format]
-full = " $title.str(w:25, rot_interval:0.4, rot_separator:'   ') |"
-short = " $title.str(w:25) |"
+full = " $title.str(w:40, rot_interval:0.4, rot_separator:'   ') |"
+short = " $title.str(w:40) |"
 [block.theme_overrides]
 idle_bg = "#000000"
 idle_fg = "#00AFFF"
 
-[[block]]
-block = "music"
-format = " $icon  * $prev $play $next | - "
-interface_name_exclude = [".*kdeconnect.*"]
-[[block.click]]
-button = "left"
-action = "play_pause"
-[block.theme_overrides]
-info_fg = "#00AFFF"
 
 [[block]]
 block = "cpu"
@@ -43,28 +35,19 @@ alert_unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
-format = " $icon [󰣇 + + ]:[$available.eng(hide_unit:true)"
-format_alt = " $icon /+Ex:[$available.eng(hide_unit:true)/$total.eng(hide_unit:true)"
+format = "$icon $available+"
+format_alt = "$icon $percentage A+"
 
 [[block]]
 block = "disk_space"
-path = "/mnt/the_hoard2/"
+path = "/mnt/bbb69f90-d83b-444e-a9d6-7db272b6793f/"
 info_type = "available"
 alert_unit = "GB"
-alert = 5.0
-warning = 10.0
-format = "+$available.eng(hide_unit:true)"
-format_alt = "+$available.eng(hide_unit:true)/$total.eng(hide_unit:true)"
-
-[[block]]
-block = "disk_space"
-path = "/run/media/noncomplete/the_hoard/"
-info_type = "available"
-alert_unit = "GB"
-alert = 5.0
-warning = 10.0
-format = "+$available.eng(hide_unit:true)]"
-format_alt = "+$available.eng(hide_unit:true)/$total.eng(hide_unit:true)]"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = "$available"
+format_alt = "$percentage A"
 
 [[block]]
 block = "memory"
@@ -79,7 +62,7 @@ device = "intel_backlight"
 block = "hueshift"
 step = 50
 click_temp = 3500
-format = " 󱎴 $temperature "
+format = " 󱎴  $temperature "
 
 [[block]]
 block = "sound"
@@ -92,59 +75,74 @@ block = "net"
 format = " $icon {$signal_strength $ssid.str(w:5)..|Wired connection} [$device] ( $speed_down.eng(prefix:K, w:4))"
 [[block.click]]
 button = "left"
-cmd = "exec gnome-terminal -- nmtui"
+cmd = "exec gnome-terminal -- impala"
 
 [[block]]
 block = "temperature"
-format = " $icon $max max "
+format = " $icon $max"
 format_alt = " $icon $min min, $max max, $average avg "
 interval = 10
 chip = "*-isa-*"
 
+#[[block]]
+#block = "custom"
+#command = "~/scripts/idle_state_view.sh"
+#json = true
+#interval = 1
+#[[block.click]]
+#button = "left"
+#cmd = "~/scripts/idle_state_toggle.sh"
+#[block.theme_overrides]
+#good_fg = "#00AFFF"
+
 
 [[block]]
-block = "custom"
-command = "~/idle_state_view.sh"
-json = true
-interval = 1
+block = "music"
+format = " $icon  $prev $play $next | - "
+interface_name_exclude = [".*kdeconnect.*"]
 [[block.click]]
 button = "left"
-cmd = "~/idle_state_toggle.sh"
+action = "play_pause"
 [block.theme_overrides]
-good_fg = "#00AFFF"
-
-# Prayer notification
-[[block]]
-block = "custom"
-command = "echo 󰖔 "
-interval = "once"
-[[block.click]]
-button = "left"
-cmd = "~/Documents/rust/prayer_notifier/target/release/prayer_notifier"
-
-[[block]]
-block = "taskwarrior"
-interval = 60
-format = " 󰄹  $count.eng(w:1) tasks "
-format_singular = " 󰄹  1 task "
-format_everything_done = " 󰄸  "
-warning_threshold = 8
-critical_threshold = 15
-[block.theme_overrides]
-warning_fg = "#00A0FF"
-[[block.click]]
-button = "left"
-cmd = "gnome-terminal --geometry=60x20 -- watch -n 60 task"
+info_fg = "#00AFFF"
 
 [[block]]
 block = "time"
-interval = 5
-format = " $timestamp.datetime(f:'%a %d/%m/%y %R') "
+interval = 10
+format = " $icon $timestamp.datetime(f:'%a%Y%m%d')"
+
+[[block]]
+block = "time"
+interval = 10 
+format = "$timestamp.datetime(f:'%R') "
+[block.theme_overrides]
+idle_fg = "#00afff"
+
+#[[block]]
+#block = "custom"
+#command = "~/scripts/show_hidden_wins.sh"
+#interval = 1
+
+#[[block]]
+#block = "pomodoro"
+#notify_cmd = "notify-send '{msg}'"
+#blocking_cmd = false
+#format = " $icon { $message | }"
 
 [[block]]
 block = "tea_timer"
 format = " $icon {$minutes:$seconds |}"
 done_cmd = "notify-send 'Timer Finished'"
+
+[[block]]
+block = "custom"
+command = "echo  "
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "~/scripts/idle_state_toggle.sh"
+#[block.theme_overrides]
+#good_fg = "#00AFFF"
 
 [[block]]
 block = "notify"
@@ -156,6 +154,14 @@ action = "show"
 [[block.click]]
 button = "right"
 action = "toggle_paused"
+
+[[block]]
+block = "weather"
+format = " $icon $temp"
+autolocate = false
+[block.service]
+name = "metno"
+coordinates = ["24.851","89.3711"]
 
 [[block]]
 block = "battery"

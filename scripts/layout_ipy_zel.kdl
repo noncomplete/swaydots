@@ -1,8 +1,0 @@
-// Rudimentary ipython dev env
-// vim | repl
-layout {
-  pane split_direction="vertical" {
-      pane command="nvim" size="55%"
-      pane command="ipython"
-  }
-}

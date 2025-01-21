@@ -1,8 +1,3 @@
-require("full-border"):setup {
-	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
-	type = ui.Border.ROUNDED,
-}
-
 -- You can configure your bookmarks by lua language
 local bookmarks = {}
 

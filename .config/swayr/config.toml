@@ -3,11 +3,10 @@ executable = "tofi"
 args = [
     "--prompt-text=win: ",
     "--fuzzy-match=true",
-    "--selection-background-padding=5",
 ]
 
 [format]
-window_format = '[{app_name:{:.10}...}][{title:{:.20}...}]->[{workspace_name}]'
+window_format = '[{app_name:{:.15}...}][{title:{:.25}...}]->[{workspace_name}]'
 indent = '    '
 
 [focus]

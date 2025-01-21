@@ -1,15 +1,20 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
+############################################################
+#                                                          #
+#  █▄ █ █▀█ █▄ █ █▀▀ █▀█ █▀▄▀█ █▀█ █   █▀▀ ▀█▀ █▀▀ ▀ █▀▀   #
+#  █ ▀█ █▄█ █ ▀█ █▄▄ █▄█ █ ▀ █ █▀▀ █▄▄ ██▄  █  ██▄   ▄▄█   #
+#                                                          #
+#       █▀▀ █ █ █ ▄▀█ █▄█   █▀▀ █▀█ █▄ █ █▀▀ █ █▀▀         #
+#       ▄▄█ ▀▄▀▄▀ █▀█  █    █▄▄ █▄█ █ ▀█ █▀  █ █▄█         #
+#                                                          #
+############################################################
+
 # Read `man 5 sway` for a complete reference.
 
 ### Includes
 include catppuccin-mocha
 
-#
 ### Variables
-#
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -19,30 +24,27 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term wezterm
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu bemenu-run -c -l 10 -W 0.75 --fn='Iosevka Nerd Font 14'
-#set $menu kickoff
-
-
+# Script location
+#set $scripts /home/noncomplete/scripts
 # borders
-titlebar_border_thickness 1
+titlebar_border_thickness 0
 titlebar_padding 20 1
 title_align left
-default_border pixel 2
+default_border none
 hide_edge_borders smart
 
 # Misc
 show_marks yes
+#focus_follows_mouse no
+
 # fonts
-font pango:IosevkaTermSlab Nerd Font ExtraBold 11
+font pango:ZedMono Nerd Font ExtraBold 8
 
 ### Gtk settings
 exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme "oomox-CGA"
-  gsettings set org.gnome.desktop.interface font-name "Geist Medium 12"
-  gsettings set org.gnome.desktop.interface icon-theme "oomox-CGA"
+  gsettings set org.gnome.desktop.interface gtk-theme "Materia-compact"
+  gsettings set org.gnome.desktop.interface font-name "Atkinson Hyperlegible 10"
+  gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.privacy remember-recent-files 'false'
 }
@@ -50,50 +52,47 @@ exec_always {
 #
 ### Program keybinds and autostart
 #
-bindsym $mod+n exec leafpad
-bindsym $mod+F3 exec pcmanfm 
-bindsym $mod+F4 exec gnome-terminal --geometry=120x20 -- cava 
+bindsym $mod+n exec mousepad
+bindsym $mod+Shift+n exec gnome-terminal -- fish -c "pter ~/todo.txt"
+bindsym $mod+F3 exec thunar
 bindsym $mod+Shift+F3 exec wezterm -e fish -c y
-bindsym $mod+F2 exec zen-browser
-bindsym $mod+y exec bash -e /home/noncomplete/launch_yomikiru.sh 
+bindsym $mod+F2 exec zen-browser 
 bindsym $mod+Shift+F2 exec brave-browser-nightly --incognito
 bindsym $mod+Print exec bash -e grimshot --notify save output /home/noncomplete/Pictures/scr/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec bash -e grimshot --notify copy area
 bindsym $mod+Alt+Print exec bash -e grimshot --notify copy area
-bindsym $mod+Alt+n exec swaync-client -t -sw
-bindsym $mod+Insert exec splatmoji copypaste
-bindsym $mod+p exec cliphist list | wofi -I -S dmenu -p cliphist | cliphist decode | wl-copy
-bindsym $mod+Shift+p exec cliphist list | wofi -I -S dmenu -p cliphist_del | cliphist delete
-bindsym $mod+Shift+b exec gnome-terminal -- bash -c /home/noncomplete/book_open.sh 
+bindsym $mod+Alt+n exec bash -e /home/noncomplete/scripts/launch_swaync.sh
+bindsym $mod+p exec bash -e /home/noncomplete/scripts/cliphist_paste.sh
+bindsym $mod+Shift+p exec bash -e /home/noncomplete/scripts/cliphist_delete.sh
+bindsym $mod+Shift+b exec gnome-terminal -- bash -c /home/noncomplete/scripts/book_open.sh 
 # autostart
-exec --no-startup-id /usr/bin/lxqt-policykit-agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id udiskie
 exec --no-startup-id sway-audio-idle-inhibit
-exec --no-startup-id swaync
-#exec --no-startup-id keepassxc
-exec --no-startup-id ibus-daemon -d
-exec --no-startup-id fcitx5
+exec --no-startup-id /home/noncomplete/scripts/launch_swaync.sh
+exec --no-startup-id /home/noncomplete/scripts/launch_mpd.sh
 exec wl-paste --watch cliphist store
-exec --no-startup-id  bash -c /home/noncomplete/set_sound.sh
-exec autotiling-rs -w 1 3 4 5 6
+exec autotiling-rs -w 1 3 4 5
 exec --no-startup-id fish -c swayrd
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /home/noncomplete/Pictures/wallhaven-d67ew3.jpg fill #000000
-output * bg /home/noncomplete/Pictures/0027_night-city-lights-sunset.png fill #000000
+#output * bg /home/noncomplete/Pictures/wallhaven-72xydo.png fill #000000
+#output * bg /usr/share/backgrounds/archlinux/geowaves.png fill #000000
+output * bg /home/noncomplete/Pictures/arch-minimal-wallpapers/wallpapers/full-hd/kitty.png fill #000000
 
 #
 # Example Monitor configuration:
 #
 
 output {
-  DP-1 position 0,0 mode 1280x1024@60Hz
-  eDP-1 position 1280,0 mode 1920x1080@60Hz
+  HDMI-A-1 position 1366,0 mode 1024x768@60Hz
+  eDP-1 position 0,0 mode 1366x768@60Hz
 }
 
-bindsym $mod+Shift+x exec swaymsg "output DP-1 disable"
+bindsym $mod+Shift+x exec swaymsg "output HDMI-A-1 disable"
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -106,24 +105,17 @@ bindsym $mod+Shift+x exec swaymsg "output DP-1 disable"
 #         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 #         before-sleep 'bash -e /home/noncomplete/lock.sh'
 #
-exec_always /home/noncomplete/sway_idle.sh
+exec_always /home/noncomplete/scripts/sway_idle.sh
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 ## A manual lock for moving away from the computer
-bindsym $mod+z exec /home/noncomplete/lock.sh
+bindsym $mod+z exec /home/noncomplete/scripts/lock.sh
 
 ### Input configuration
 #
 # Example configuration:
 #
-input "1267:12375:ELAN1300:00_04F3:3057_Touchpad" {
-    dwt enabled
-    tap enabled
-    middle_emulation enabled
-    tap_button_map lrm
-}
-
 input type:keyboard {
     xkb_options caps:swapescape
 }
@@ -163,7 +155,7 @@ input type:keyboard {
 
     # Exit sway (logs you out of your Wayland session)
     #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+e exec /home/noncomplete/wofipower.sh
+    bindsym $mod+Shift+e exec /home/noncomplete/scripts/wofipower.sh
 #
 # Moving around:
 #
@@ -214,8 +206,19 @@ input type:keyboard {
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
+    # Move focused container to a workspace and keep focus. 
+    bindsym $mod+Ctrl+1 [con_id=__focused__] move to workspace 1, focus
+    bindsym $mod+Ctrl+2 [con_id=__focused__] move to workspace 2, focus
+    bindsym $mod+Ctrl+3 [con_id=__focused__] move to workspace 3, focus
+    bindsym $mod+Ctrl+4 [con_id=__focused__] move to workspace 4, focus
+    bindsym $mod+Ctrl+5 [con_id=__focused__] move to workspace 5, focus
+    bindsym $mod+Ctrl+6 [con_id=__focused__] move to workspace 6, focus
+    bindsym $mod+Ctrl+7 [con_id=__focused__] move to workspace 7, focus
+    bindsym $mod+Ctrl+8 [con_id=__focused__] move to workspace 8, focus
+    bindsym $mod+Ctrl+9 [con_id=__focused__] move to workspace 9, focus
+    bindsym $mod+Ctrl+0 [con_id=__focused__] move to workspace 10, focus
     
-    # We just use 1-10 as the default.
+
     bindsym $mod+x move workspace to output left
     
     # Cycle workspaces with Ctrl
@@ -350,22 +353,23 @@ mode "$mode_gaps_inner" {
 #
 #xwayland
 for_window [class="firefox"] inhibit_idle fullscreen
-for_window [class="Spotify"] inhibit_idle
-for_window [class="Leafpad"] floating enable
+for_window [class="Spotify"] inhibit_idle visible
 #wayland
 for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [app_id="org.telegram.desktop"] border 1 px
-for_window [app_id="mpv"] inhibit_idle
+for_window [app_id="mpv"] inhibit_idle visible
+for_window [app_id="mpv"] floating enable
+for_window [app_id="mousepad"] floating enable
 for_window [app_id="org.pwmt.zathura"] inhibit_idle fullscreen
-for_window [app_id="wdisplays"] floating enable
+for_window [app_id="nwg-displays"] floating enable
 for_window [app_id="org.gnome.Terminal"] floating enable
 for_window [app_id="io.bassi.Amberol"] floating enable
 for_window [app_id="io.bassi.Amberol"] inhibit_idle
-for_window [app_id="lxqt-policykit-agent"] floating enable
+for_window [app_id="gnome-policykit-agent"] floating enable
 for_window [app_id="whatsapp-for-linux"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Extension: (Tree Style Tab) - New Bookmarks — Mozilla Firefox"] floating enable
+for_window [app_id="zen-bin"] inhibit_idle fullscreen
 
 #
 # Status Bar:
@@ -376,9 +380,9 @@ bindsym $mod+m bar mode toggle
 bar {
   output eDP-1
   position top
-  font pango:IosevkaTermSlab Nerd Font ExtraBold 11.5
+  font pango:ZedMono Nerd Font ExtraBold 9
   status_command i3status-rs
-  icon_theme Papirus
+  icon_theme Papirus-Dark
   tray_output eDP-1
   status_padding 0
   colors {
@@ -394,12 +398,12 @@ bar {
 # Bar 2 
 #
 bar {
-  output DP-1
+  output HDMI-A-1
   position top
-  font pango:IosevkaTermSlab Nerd Font ExtraBold 11
+  font pango:ZedMono Nerd Font ExtraBold 8.5
   status_command i3status-rs ~/.config/i3status-rust/config_2.toml
   status_padding 0
-  icon_theme Papirus
+  icon_theme Papirus-Dark
   colors {
     background #000000
     
@@ -413,14 +417,22 @@ bar {
 
 # Btm bar -- only the title
 #bar {
+#  id music
+#  modifier Alt
+#  binding_mode_indicator no
 #  position bottom
-#  font pango:GeistMonoNerdFont Black 10
+#  font pango:ZedMono Nerd Font ExtraBold 10
 #  workspace_buttons no
 #  tray_output none
 #  status_padding 0
-#  status_edge_padding 10
+#  status_edge_padding 20
 #  status_command i3status-rs ~/.config/i3status-rust/config_title.toml
+#  colors {
+#    background #000000
+#  }
 #}
+
+#bindsym Alt+m bar music mode toggle
 
 ## Waybar exec
 #exec_always bash -c "waybar &!"
@@ -437,10 +449,10 @@ bar {
 #client.placeholder        #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 ### Colors (catppuccin)
-#class 	                 border 	    background  text 	      indicator  child_border
-client.focused           #00AFFF    #000000   #00AFFF   #00AFFF    #00AFFF
-client.focused_inactive  #000000    #000000   #3F3F3F   #000000    #000000
-client.unfocused         #000000    #000000   #3F3F3F   #000000    #000000
+#class 	                 border     background  text 	indicator  child_border
+client.focused           #000000    #000000   #00CFFF   #0070b0    #000000
+client.focused_inactive  #202020    #000000   #3F3F3F   #000000    #000000
+client.unfocused         #101010    #000000   #3F3F3F   #000000    #000000
 client.urgent            $peach       $crust      $peach      $overlay0    $peach
 client.placeholder       $overlay0    $crust      $text       $overlay0    $overlay0
 client.background        #000000

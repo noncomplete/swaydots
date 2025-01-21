@@ -8,21 +8,17 @@ alias vi="/usr/bin/vim"
 alias :q="exit"
 alias :wq="exit"
 alias :x="exit"
-alias zel="zellij"
 alias cat="bat"
 alias ls="exa --color=always --color-scale --icons --all"
 alias ll="exa --color=always --color-scale --icons --long --all"
 alias nnn="nnn -de"
-alias jd="zellij --layout ~/layout_julia_zel.kdl"
-alias rsd="zellij --layout ~/layout_rust_zel.kdl"
-alias ipd="zellij --layout ~/layout_ipy_zel.kdl"
-alias nvd="neovide"
 alias neofetch="fastfetch"
+alias pt="pter ~/todo.txt"
+alias task="pter ~/todo.txt"
 
 # Paths
 fish_add_path /home/noncomplete/.local/bin
 fish_add_path /home/noncomplete/.juliaup/bin
-fish_add_path /home/noncomplete/.elan/bin
 fish_add_path /home/noncomplete/.cargo/bin
 
 # Variables
@@ -30,18 +26,13 @@ set -x NNN_TMPFILE "/home/noncomplete/.config/nnn/.lastd"
 set -x EDITOR nvim
 set -x NNN_OPTS deH
 set fish_greeting
-set -x CARGO_TARGET_DIR "/home/noncomplete/.cache/cargo"
 set -x SHELL "/usr/bin/fish"
 
 # Zoxide
 zoxide init fish | source
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /home/noncomplete/miniconda3/bin/conda
-    eval /home/noncomplete/miniconda3/bin/conda "shell.fish" hook $argv | source
-end
-# <<< conda initialize <<<
+# Starship
+starship init fish | source
 
 # <<< nnn file manager >>>
 
@@ -90,3 +81,17 @@ function y
     end
     rm -f -- "$tmp"
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/noncomplete/miniconda3/bin/conda
+    eval /home/noncomplete/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/home/noncomplete/miniconda3/etc/fish/conf.d/conda.fish"
+        . "/home/noncomplete/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/home/noncomplete/miniconda3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
