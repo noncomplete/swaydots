@@ -1,0 +1,181 @@
+{
+  "workspaces": {
+    "def": {
+      "main": {
+        "id": "19735a33522c532d",
+        "type": "split",
+        "children": [
+          {
+            "id": "fbfa4b034a086203",
+            "type": "tabs",
+            "dimension": 56.30630630630631,
+            "children": [
+              {
+                "id": "5b2de0b831d5151f",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "What the heck.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                },
+                "group": "736950d290753e10"
+              }
+            ]
+          },
+          {
+            "id": "64dc117d59975a0e",
+            "type": "tabs",
+            "dimension": 43.69369369369369,
+            "children": [
+              {
+                "id": "036ad08432229d13",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "What the heck.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                },
+                "group": "736950d290753e10"
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "99904816b4f37f20",
+        "type": "split",
+        "children": [
+          {
+            "id": "f7433ddc7e2c5740",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "771e6e8c3bbca04a",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "77b46dd6d1e9187b",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "b7ef7e9aa66608cb",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 224.5
+      },
+      "right": {
+        "id": "e30b998efec3900a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ec014d5fdb9926db",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "1ef795a5763c2913",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "What the heck.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "ebcd2538d104b0f6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "What the heck.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "643664871186ac07",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "bec47fa76fb3e141",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "What the heck.md"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "obsidian-advanced-slides:Show Slide Preview": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "zk-prefixer:Create new unique note": false,
+          "workspaces:Manage workspace layouts": false,
+          "switcher:Open quick switcher": false,
+          "graph:Open graph view": false,
+          "canvas:Create new canvas": false,
+          "daily-notes:Open today's daily note": false,
+          "templates:Insert template": false,
+          "command-palette:Open command palette": false
+        }
+      },
+      "active": "5b2de0b831d5151f"
+    }
+  },
+  "active": "def"
+}

@@ -1,0 +1,13 @@
+{
+  "accentColor": "#00aaff",
+  "interfaceFontFamily": "FreeSans,CMUSansSerif NF",
+  "textFontFamily": "CMUSerif NF,CMUSansSerif NF",
+  "monospaceFontFamily": "GeistMono Nerd Font,JuliaMono",
+  "theme": "obsidian",
+  "baseFontSize": 30,
+  "cssTheme": "Minimal",
+  "baseFontSizeAction": true,
+  "enabledCssSnippets": [
+    "big_math"
+  ]
+}

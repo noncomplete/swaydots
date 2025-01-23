@@ -1,0 +1,275 @@
+{
+  "main": {
+    "id": "19735a33522c532d",
+    "type": "split",
+    "children": [
+      {
+        "id": "c054b546a7ff31af",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e3038ca8eeba7d3c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GRE Word List.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "GRE Word List"
+            }
+          },
+          {
+            "id": "d34281796efb4ae3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GRE Math Notes.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "GRE Math Notes"
+            }
+          },
+          {
+            "id": "606846a8401994e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GRE Verbal & Writing.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "GRE Verbal & Writing"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "99904816b4f37f20",
+    "type": "split",
+    "children": [
+      {
+        "id": "f7433ddc7e2c5740",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "771e6e8c3bbca04a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "77b46dd6d1e9187b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "b7ef7e9aa66608cb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "e30b998efec3900a",
+    "type": "split",
+    "children": [
+      {
+        "id": "ec014d5fdb9926db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1ef795a5763c2913",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Skill Tree.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Skill Tree"
+            }
+          },
+          {
+            "id": "ebcd2538d104b0f6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Skill Tree.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Skill Tree"
+            }
+          },
+          {
+            "id": "643664871186ac07",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "bec47fa76fb3e141",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Skill Tree.canvas"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Skill Tree"
+            }
+          },
+          {
+            "id": "687d35548157a0c7",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "299a90e04557e2e5",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 337.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "zk-prefixer:Create new unique note": false,
+      "workspaces:Manage workspace layouts": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "terminal:Open terminal": false,
+      "obsidian-statusbar-pomo:Start pomodoro": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "e3038ca8eeba7d3c",
+  "lastOpenFiles": [
+    "GRE Math Notes.md",
+    "GRE Verbal & Writing.md",
+    "GRE Word List.md",
+    "Skill Tree.canvas",
+    "Random Musings.md",
+    "Yet another planner.md",
+    "SolarPunk Dreams.md",
+    "Study Notes (Physics, Math).md",
+    "Pasted image 20240816223340.png",
+    "How to study complex topics by yourself.md",
+    "Pasted image 20240701103100.png",
+    "Book notes/Math/Basic Mathematics.md",
+    "2 Download.md",
+    "Study/Math books to read..md",
+    "Excalidraw/Drawing 2024-10-05 06.03.57.excalidraw.md",
+    "Presentation.md",
+    "Test (mindmap_canvas).canvas",
+    "Excalidraw",
+    "GRE Syllabus and Roadmap.md",
+    "Pomodoro Log.md",
+    "Pasted image 20240816222836.png",
+    "Pasted image 20240816013541.png",
+    "Pasted image 20240816013508.png",
+    "Pasted image 20240816012514.png",
+    "Pasted image 20240816003215 1.png",
+    "Pasted image 20240816003215.png",
+    "Pasted image 20240730212536.png",
+    "Teach/Qualitative Chem.md",
+    "Pasted image 20240701104125.png",
+    "Teach",
+    "Book notes/Math",
+    "Study",
+    "Book notes/Basic Mathematics.md~",
+    "Book notes",
+    "Research notes/Research Ideas.md",
+    "Weekly Plans.md",
+    "Research notes",
+    "What the heck.md",
+    "Weekly Plans.md~",
+    "2024-W02.md",
+    "Untitled Kanban.md",
+    "Yet another planner.md~",
+    "4913",
+    "2023-12-01.md"
+  ]
+}
