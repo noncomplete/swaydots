@@ -1,15 +1,14 @@
 {
-  "theme": "moonstone",
   "lightStyle": "minimal-light",
   "darkStyle": "minimal-dark-black",
   "lightScheme": "minimal-default-light",
   "darkScheme": "minimal-dracula-dark",
-  "editorFont": "Hasklug Nerd Font",
+  "editorFont": "ZedMono Nerd Font",
   "lineHeight": 1.5,
   "lineWidth": 70,
   "lineWidthWide": 120,
   "maxWidth": 88,
-  "textNormal": 30,
+  "textNormal": 22,
   "textSmall": 13,
   "imgGrid": false,
   "imgWidth": "img-default-width",
@@ -28,9 +27,10 @@
   "focusMode": false,
   "underlineInternal": true,
   "underlineExternal": true,
-  "useSystemTheme": false,
   "folding": true,
-  "lineNumbers": true,
-  "readableLineLength": true,
-  "devBlockWidth": false
+  "lineNumbers": false,
+  "readableLineLength": false,
+  "devBlockWidth": false,
+  "theme": "moonstone",
+  "useSystemTheme": false
 }

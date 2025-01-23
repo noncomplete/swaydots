@@ -5988,13 +5988,13 @@ var YoutubeTranscript = class {
       if (langCode)
         captionTrack = (_h = availableCaptions.find((track) => track.languageCode.includes(langCode))) != null ? _h : availableCaptions == null ? void 0 : availableCaptions[0];
       const captionsUrl = captionTrack == null ? void 0 : captionTrack.baseUrl;
-      const resXML = await (0, import_obsidian.request)(captionsUrl).then((xml) => (0, import_node_html_parser.parse)(xml));
+      const fixedCaptionsUrl = captionsUrl.startsWith("https://") ? captionsUrl : "https://www.youtube.com" + captionsUrl;
+      const resXML = await (0, import_obsidian.request)(fixedCaptionsUrl).then((xml) => (0, import_node_html_parser.parse)(xml));
       const chunks = resXML.getElementsByTagName("text");
-      console.log(chunks);
       return {
         title,
         lines: chunks.map((cue) => ({
-          text: cue.textContent.replaceAll("&#39;", "'"),
+          text: cue.textContent.replaceAll("&#39;", "'").replaceAll("&amp;", "&").replaceAll("&quot;", '"').replaceAll("&apos;", "'").replaceAll("&lt;", "<").replaceAll("&gt;", ">"),
           duration: parseFloat(cue.attributes.dur) * 1e3,
           offset: parseFloat(cue.attributes.start) * 1e3
         }))
@@ -6413,3 +6413,5 @@ var YTranslateSettingTab = class extends import_obsidian4.PluginSettingTab {
   }
 };
 /*! https://mths.be/he v1.2.0 by @mathias | MIT license */
+
+/* nosourcemap */

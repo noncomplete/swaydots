@@ -1,10 +1,10 @@
 {
-  "accentColor": "#00aaff",
-  "interfaceFontFamily": "FreeSans,CMUSansSerif NF",
-  "textFontFamily": "CMUSerif NF,CMUSansSerif NF",
-  "monospaceFontFamily": "GeistMono Nerd Font,JuliaMono",
+  "accentColor": "#0088cc",
+  "interfaceFontFamily": "Atkinson Hyperlegible",
+  "textFontFamily": "Libertinus Serif",
+  "monospaceFontFamily": "ZedMono Nerd Font",
   "theme": "obsidian",
-  "baseFontSize": 30,
+  "baseFontSize": 22,
   "cssTheme": "Minimal",
   "baseFontSizeAction": true,
   "enabledCssSnippets": [
