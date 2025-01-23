@@ -24,7 +24,7 @@ max_height      = 900
 cache_dir       = ""
 image_delay     = 30
 image_filter    = "triangle"
-image_quality   = 75
+image_quality   = 50
 sixel_fraction  = 15
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
@@ -95,12 +95,17 @@ suppress_preload = false
 
 [plugin]
 
+#prepend_preloaders = [
+#	{ name = "*.cb[7rz]", run = "comicthumb" },
+#]
+#prepend_previewers = [
+#	{ name = "*.cb[7rz]", run = "comicthumb" },
+#]
 
 prepend_previewers = [
 	# Archive previewer
   { name = "*.epub",                      run = "epub-preview"},
-  { name = "*.cbz",                       run = "comicthumb"},
-  { name = "*.cbr",                       run = "comicthumb"},
+	{ name = "*.cb[7rz]",                   run = "comicthumb" },
 	{ mime = "audio/*",                     run = "exifaudio" },
 	{ mime = "application/?(g)zip",         run = "ouch" },
 	{ mime = "application/x-tar",           run = "ouch" },
