@@ -3,6 +3,16 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [[manager.prepend_keymap]]
+on   = "T"
+run  = "plugin hide-preview"
+desc = "Hide or show preview"
+
+[[manager.prepend_keymap]]
+on = "<C-y>"
+run = ["plugin wl-clipboard"]
+desc = "Copy file link to wl-clipboard"
+
+[[manager.prepend_keymap]]
 on = "<A-y>"
 run = ["plugin copy-file-contents"]
 desc = "Copy contents of file"

@@ -34,7 +34,7 @@ function M:preload()
 
 	local awk_output = Command("awk")
 		:args({
-			[[length($0) > 53 && tolower(substr($0, 54)) ~ /\.(jpg|jpeg|png|gif)$/ { print substr($0, 54) }]]
+			[[length($0) > 53 && tolower(substr($0, 54)) ~ /\.(jpg|jpeg|png|gif|webp)$/ { print substr($0, 54) }]]
 		})
 		:stdin(list_output:take_stdout())
 		:stdout(Command.PIPED)

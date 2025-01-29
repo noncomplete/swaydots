@@ -2,6 +2,8 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
+# ~/.config/yazi/yazi.toml
+
 [manager]
 ratio          = [ 1, 2, 3 ]
 sort_by        = "natural"
@@ -105,7 +107,7 @@ suppress_preload = false
 prepend_previewers = [
 	# Archive previewer
   { name = "*.epub",                      run = "epub-preview"},
-	{ name = "*.cb[7rz]",                   run = "comicthumb" },
+	{ name = "*.cb[7rz]",                   run = "ouch" },
 	{ mime = "audio/*",                     run = "exifaudio" },
 	{ mime = "application/?(g)zip",         run = "ouch" },
 	{ mime = "application/x-tar",           run = "ouch" },
