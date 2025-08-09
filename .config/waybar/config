@@ -1,0 +1,179 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 22, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["mpris", "idle_inhibitor", "disk", "disk#ext", "disk#ext2", "temperature", "cpu", "memory", "network", "pulseaudio", "backlight", "custom/screentemp", "battery", "custom/notification", "custom/pomo", "clock", "tray"],
+    // Modules configuration
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "custom/screentemp": {
+        "format": "  ",
+        "on-click": "killall gammastep; sleep 0.5; gammastep -O 4500",
+        "on-click-right": "killall gammastep; sleep 0.5; gammastep -O 6500"
+    },
+    "custom/pomo": {
+        "format": "  {text} ",
+        "exec": "~/.cargo/bin/pomodoro-cli status --format json --time-format digital",
+        "return-type": "json",
+        "on-click": "~/.cargo/bin/pomodoro-cli start --duration 45:00 --add 5m --notify",
+        "on-click-middle": "~/.cargo/bin/pomodoro-cli pause",
+        "on-click-right": "~/.cargo/bin/pomodoro-cli stop",
+        "interval": 1
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon} ({text})",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "",
+            "dnd-notification": " ",
+            "dnd-none": "󰂛",
+            "inhibited-notification": " ",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": " ",
+            "dnd-inhibited-none": " ",
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true,
+    },   
+    "mpris": {
+	      "format": "{status_icon}",
+	      "format-paused": "{status_icon}",
+	      "status-icons": {
+		        "paused": "⏸",
+		        "playing": "▶",
+            "stopped": "-",
+	      },
+	      // "ignored-players": ["firefox"]
+    },
+    "disk": {
+        "interval": 30,
+        "format": "  {free}+",
+        "path": "/"
+    },
+    "disk#ext": {
+        "interval": 30,
+        "format": "{free}+",
+        "path": "/mnt/bbb69f90-d83b-444e-a9d6-7db272b6793f"
+    },
+    "disk#ext2": {
+        "interval": 30,
+        "format": "{free}",
+        "path": "/run/media/noncomplete/the_hoard"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        //"format-alt": "{:%Y-%m-%d}"
+        //"format": "{:L%Y-%m-%d<small>[%a]</small> <tt><small>%p</small></tt>%I:%M}"
+        "format": "󰃭 {:%Y-%m-%d (%a) %H:%M}"
+    },
+    "cpu": {
+        "format": " {usage:3}%",
+        "interval": 2,
+        "states": {
+            "warning": 75,
+            "critical": 90,
+        },
+    },
+    "memory": {
+        "format": " {percentage}%",
+        "format-alt": "  {swapPercentage} %",
+        "tooltip-format": "Ram: {used}/{total} GiB used\nSwap: {swapUsed}/{swapTotal} GiB used",
+        "interval": 2,
+        "states": {
+            "warning": 60,
+            "critical": 90,
+        },
+    },
+    "temperature": {
+        "thermal-zone": 4,
+        "critical-threshold": 80,
+        "format": " {temperatureC:3}°C",
+        "interval": 2,
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "scroll-step": 5,
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": "brightnessctl -d intel_backlight s 5%",
+        "on-click-right": "brightnessctl -d intel_backlight s 100%"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    //"battery#bat2": {
+    //    "bat": "BAT2"
+    //},
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "  {signalStrength}%  {bandwidthDownBytes:>}",
+        "format-ethernet": "󰈀  {ifname}",
+        "tooltip-format": "{essid} on {ifname} via {gwaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠ {ifname}",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 2,
+        "on-click-right": "gnome-terminal -- nmtui",
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": " {icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+//            "headphone": "",
+//            "hands-free": "HF",
+//            "headset": "HD",
+//            "phone": "",
+//            "portable": "",
+//            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "gnome-terminal -- pw-top"
+    },
+}
+

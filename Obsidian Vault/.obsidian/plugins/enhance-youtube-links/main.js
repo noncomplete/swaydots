@@ -42,24 +42,25 @@ var indentLevel = 0;
 var leadingString = "";
 var EnhanceYouTubeLinksPlugin = class extends import_obsidian.Plugin {
   async onload() {
-    var _a;
     await this.loadSettings();
-    const editor = (_a = this.app.workspace.activeEditor) == null ? void 0 : _a.editor;
-    if (editor) {
-      if (this.settings.enableRibbonIcon) {
-        this.addRibbonIcon("youtube", "Get YouTube data", (evt) => {
+    if (this.settings.enableRibbonIcon) {
+      this.addRibbonIcon("youtube", "Get YouTube data", (evt) => {
+        const editor = this.app.workspace.activeEditor;
+        if ((editor == null ? void 0 : editor.editor) != null) {
+          this.processText(editor.editor);
+        } else {
+          new import_obsidian.Notice("No editor found");
+        }
+      });
+    }
+    if (this.settings.enableCommandPalette) {
+      this.addCommand({
+        id: "enhance-youtube-links-process-text",
+        name: "Process Text",
+        editorCallback: (editor, view) => {
           this.processText(editor);
-        });
-      }
-      if (this.settings.enableCommandPalette) {
-        this.addCommand({
-          id: "enhance-youtube-links-process-text",
-          name: "Process Text",
-          editorCallback: (editor2, view) => {
-            this.processText(editor2);
-          }
-        });
-      }
+        }
+      });
     }
     this.addSettingTab(new EnhanceYouTubeLinksSettingTab(this.app, this));
   }
@@ -74,15 +75,16 @@ var EnhanceYouTubeLinksPlugin = class extends import_obsidian.Plugin {
     const urlBase = "https://www.youtube.com/oembed?url=";
     const textSelected = editor.getSelection();
     if (textSelected.length > 0) {
+      const textSelectedClean = textSelected.replace("https://", "").replace("www.", "").replace("http://", "");
       const line = editor.getCursor().line;
       const lineSelected = editor.getLine(line);
       indentLevel = this.getIndentLevel(lineSelected);
       this.getBullet(lineSelected);
-      if ((textSelected == null ? void 0 : textSelected.startsWith("https://www.youtube.com")) || (textSelected == null ? void 0 : textSelected.startsWith("www.youtube.com")) || (textSelected == null ? void 0 : textSelected.startsWith("youtube.com"))) {
-        const urlFinal = urlBase + textSelected;
+      if (textSelectedClean.startsWith("youtube.com") || textSelectedClean.startsWith("youtu.be") || textSelectedClean.startsWith("m.youtube.com")) {
+        const urlFinal = urlBase + textSelectedClean;
         const data = await this.getYouTubeData(urlFinal);
         if (data) {
-          let urlTitle = this.buildTitle(data, textSelected);
+          let urlTitle = this.buildTitle(data, textSelectedClean);
           let result;
           result = lineSelected.replace(textSelected, urlTitle);
           if (this.settings.includeExtraMetadata) {
@@ -170,7 +172,7 @@ var EnhanceYouTubeLinksPlugin = class extends import_obsidian.Plugin {
     let title;
     let titleURL;
     title = data.title;
-    titleURL = "[" + title.replace("[", "").replace("]", "") + "](" + url + ")";
+    titleURL = "[" + title.replace("[", "").replace("]", "") + "](https://" + url + ")";
     return titleURL;
   }
   async loadSettings() {
@@ -247,3 +249,5 @@ var EnhanceYouTubeLinksSettingTab = class extends import_obsidian.PluginSettingT
     }).setDesc("Requires reload for change to reflect");
   }
 };
+
+/* nosourcemap */

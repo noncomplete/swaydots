@@ -20,4 +20,4 @@ if ! rmpc albumart --output "$ALBUM_ART_PATH"; then
 fi
 
 # Send the notification
-notify-send -e -i "${ALBUM_ART_PATH}" "  Now Playing" "<b>$TITLE</b>    <i>$ARTIST</i>    $ALBUM"
+notify-send -e -i "${ALBUM_ART_PATH}" "  $TITLE" "<i>$ARTIST</i>    $ALBUM"

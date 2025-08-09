@@ -1,5 +1,104 @@
-[plugin]
-deps = [{ use = "yazi-rs/plugins:full-border", rev = "f202fa8" }, { use = "KKV9/compress", rev = "60b24af" }, { use = "pirafrank/what-size", rev = "b23e3a4" }, { use = "h-hg/yamb", rev = "3f7c51f" }, { use = "ndtoan96/ouch", rev = "083d564" }, { use = "kirasok/torrent-preview", rev = "c9e67df" }, { use = "Ape/open-with-cmd", rev = "a80d1cf" }, { use = "ndtoan96/mime", rev = "0ba4bb2" }, { use = "kirasok/epub-preview", rev = "77a76b8" }, { use = "navysky12/comicthumb", rev = "eeee150" }, { use = "Sonico98/exifaudio", rev = "d794614" }, { use = "yazi-rs/plugins:jump-to-char", rev = "f202fa8" }, { use = "AnirudhG07/plugins-yazi:copy-file-contents", rev = "52ee2ba" }, { use = "Sonico98/allmytoes", rev = "a987051" }, { use = "AnirudhG07/nbpreview", rev = "1d85745" }, { use = "grappas/wl-clipboard", rev = "c4edc4f" }, { use = "yazi-rs/plugins:hide-preview", rev = "02d18be" }, { use = "Rolv-Apneseth/starship", rev = "af8bf6f" }, { use = "Ape/simple-status", rev = "3ef1447" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "4b027c7"
+hash = "1f3dad061209081a6b04dd6ff2cb06c7"
 
-[flavor]
-deps = [{ use = "dangooddd/kanagawa", rev = "d98f0c3" }, { use = "BennyOe/onedark", rev = "fa1da70" }]
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+hash = "ee025be766240cc98e671754ac836da3"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "f1c6b69"
+hash = "6e789212eb41d937bab04877ca361099"
+
+[[plugin.deps]]
+use = "h-hg/yamb"
+rev = "22af003"
+hash = "7cc42012a7c2099f80064d228feb8d44"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "2496cd9"
+hash = "5b9dea47776a30946cfbf83232d18fb1"
+
+[[plugin.deps]]
+use = "kirasok/torrent-preview"
+rev = "4ca5996"
+hash = "6af40ce6b2cd849b5fa32de04a598b06"
+
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "433cf30"
+hash = "86e0312b01bc5762813c6c1d0517f073"
+
+[[plugin.deps]]
+use = "ndtoan96/mime"
+rev = "0ba4bb2"
+hash = "50eca042998a566913680c58d8a77b7f"
+
+[[plugin.deps]]
+use = "kirasok/epub-preview"
+rev = "521feb1"
+hash = "9aed469134b5c89fc4014ce278307ae3"
+
+[[plugin.deps]]
+use = "navysky12/comicthumb"
+rev = "eeee150"
+hash = "4229fe2186012b09ef2cd8f970639da9"
+
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "7ff7141"
+hash = "666ccba55119fba4c25b8ad354b2855c"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "4b027c7"
+hash = "a670c03eb3760812e044a24f94cedc55"
+
+[[plugin.deps]]
+use = "AnirudhG07/plugins-yazi:copy-file-contents"
+rev = "524c52c"
+hash = "27c50e6bc15c09096505b805b238ade0"
+
+[[plugin.deps]]
+use = "Sonico98/allmytoes"
+rev = "1e43bfd"
+hash = "8f9bfa292af429a27b81d424085ede67"
+
+[[plugin.deps]]
+use = "AnirudhG07/nbpreview"
+rev = "f8879b3"
+hash = "d378328e5d0a1b9fb9f04ab3aade4575"
+
+[[plugin.deps]]
+use = "grappas/wl-clipboard"
+rev = "c4edc4f"
+hash = "51ff959c3c26cb3889589a0f8d394f14"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "8945e54"
+hash = "55904f17e1053cfb91dacd9015a99f9d"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "d1cd0a3"
+hash = "d1fee6d0f74cb52d4e031dc6b9207f31"
+
+[[plugin.deps]]
+use = "Ape/simple-status"
+rev = "d0da104"
+hash = "68603fdd1dcaf415227e2c77a9317947"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "d98f0c3"
+hash = "cada780385f75abbcfbf5343256b441"
+
+[[flavor.deps]]
+use = "BennyOe/onedark"
+rev = "fa1da70"
+hash = "b644cb6471caf78333fc1b3940ba3ca9"

@@ -6,40 +6,42 @@
 local M = {}
 
 M.base46 = {
-	theme = "yoru",
-	hl_override = {
-    Comment = { italic = true },
-    ["@comment"] = { italic = true },
-    Normal = {
-      bg = {"black", -9}
-    },
-    CmpPmenu = {
-      bg = {"black", -2}
-    },
-    --CmpBorder = {
-    --  bg = {"black", -1}
-    --},
-    CmpDoc = {
-      bg = {"black", -9}
-    },
-    CmpDocBorder = {
-      bg = {"black", -9}
-    },
-    CmpSel = {
-      bg = "blue"
-    },
-    PmenuSel = {
-      bg = "blue"
-    }
-  },
-  theme_toggle = {"mountain","yoru"}
+	theme = "monochrome",
+  transparency = true,
+  hl_override = { TbFill = { bg = "black" }, TbTabCloseBtn = { bg = "darker_black", fg = "red"}, TbBufOn = { bg = "darker_black" }, Tabline = { bg = "darker_black"}, TbBufOff = { bg = "darker_black" }, TbCloseAllBufsBtn = { bg = "darker_black", fg = "baby_pink" }, TbBufOffClose = { bg = "darker_black" }, TbBufOnModified = { bg = "darker_black" }, TBTabTitle = { bg = "darker_black", fg = "nord_blue" }, TbBufOffModified = { bg = "darker_black" }, TbBufOnClose = { bg = "darker_black" } },
+--    Comment = { italic = true },
+--    ["@comment"] = { italic = true },
+--    Normal = {
+--      bg = {"black", -9}
+--    },
+--    CmpPmenu = {
+--      bg = {"black", -2}
+--    },
+--    --CmpBorder = {
+--    --  bg = {"black", -1}
+--    --},
+--    CmpDoc = {
+--      bg = {"black", -9}
+--    },
+--    CmpDocBorder = {
+--      bg = {"black", -9}
+--    },
+--    CmpSel = {
+--      bg = "blue"
+--    },
+--    PmenuSel = {
+--      bg = "blue"
+--    }
+--  },
+  theme_toggle = {"mountain","monochrome"}
 }
 
 M.ui = {
+  transparency = true,
   telescope = { style = "borderless" },
-  cmp = { style = "flat_dark" },
+  cmp = { style = "default" },
   statusline = { theme = "vscode_colored" },
-  tabufline = {enabled = true, lazyload = false, modules = nil},
+  tabufline = {enabled = true, lazyload = true, modules = nil},
 }
 
 M.nvdash = {

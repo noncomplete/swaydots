@@ -18,7 +18,7 @@ full = " $title.str(w:40, rot_interval:0.4, rot_separator:'   ') |"
 short = " $title.str(w:40) |"
 [block.theme_overrides]
 idle_bg = "#000000"
-idle_fg = "#00AFFF"
+idle_fg = "#005FFF"
 
 
 [[block]]
@@ -75,7 +75,7 @@ block = "net"
 format = " $icon {$signal_strength $ssid.str(w:5)..|Wired connection} [$device] ( $speed_down.eng(prefix:K, w:4))"
 [[block.click]]
 button = "left"
-cmd = "exec gnome-terminal -- impala"
+cmd = "exec gnome-terminal -- nmtui"
 
 [[block]]
 block = "temperature"
@@ -104,7 +104,7 @@ interface_name_exclude = [".*kdeconnect.*"]
 button = "left"
 action = "play_pause"
 [block.theme_overrides]
-info_fg = "#00AFFF"
+info_fg = "#005FFF"
 
 [[block]]
 block = "time"
@@ -116,7 +116,15 @@ block = "time"
 interval = 10 
 format = "$timestamp.datetime(f:'%R') "
 [block.theme_overrides]
-idle_fg = "#00afff"
+idle_fg = "#005fff"
+
+[[block]]
+block = "custom"
+command = "echo  "
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "~/scripts/salah_notify.sh"
 
 #[[block]]
 #block = "custom"
@@ -161,11 +169,11 @@ format = " $icon $temp"
 autolocate = false
 [block.service]
 name = "metno"
-coordinates = ["24.851","89.3711"]
+coordinates = ["23.8043325","90.3635135"]
 
 [[block]]
 block = "battery"
 format = " $icon $percentage $time "
 full_format = "   "
 [block.theme_overrides]
-idle_fg = "#00AFFF"
+idle_fg = "#005FFF"

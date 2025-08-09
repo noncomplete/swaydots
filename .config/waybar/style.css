@@ -1,0 +1,243 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "GeistMono Nerd Font";
+  font-weight: bolder;
+  /*font-family: "D2CodingLigature Nerd Mono";*/
+  font-size: 10px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.9);
+  /*    background-color: rgba(43, 48, 59, 0.5); */
+  /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#waybar.empty #window {
+  background-color: transparent;
+}
+
+#workspaces {
+}
+
+#window {
+  margin: 2px;
+  padding-left: 10px;
+  padding-right: 40px;
+  background-color: rgba(0,0,0,0.3);
+  font-size:12px;
+  font-weight: bold;
+  color: #00aadd;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  border-bottom: 2px solid #00aadd;
+}
+
+#workspaces button {
+  padding: 0 2px;
+  min-width: 15px;
+  /*    background-color: rgba(0,0,0,0.3); */
+}
+
+#workspaces button:hover {
+}
+
+#workspaces button.focused {
+  /*    box-shadow: inset 0 -2px #c9545d; */
+  background-color: rgba(0,0,0,0.3);
+  color:#00aadd;
+  border-bottom: 2px solid #00aadd;
+}
+
+#workspaces button.active {
+  /*    box-shadow: inset 0 -2px #c9545d; */
+  background-color: rgba(0,0,0,0.3);
+  color:#00aadd;
+  border-bottom: 2px solid #00aadd;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #64727D;
+  border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#cava,
+#backlight,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-notification,
+#tray,
+#mpris,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  margin: 2px;
+  padding-left: 0px;
+  padding-right: 5px;
+  background-color: rgba(0,0,0,0.3);
+  color: #cccccc;
+}
+
+#cpu.critical, #memory.critical, #temperature.critical {
+  color: #aa0000;
+}
+
+#cpu.warning, #memory.warning {
+  color: #bb8800;
+}
+
+#custom-pomo.running {
+  color: #00aaff;
+}
+
+#custom-pomo.paused {
+  color: #777777;
+}
+
+#custom-pomo.finished {
+  color: #DDDDDD;
+}
+
+
+#disk{
+  padding-left: 5px;
+  padding-right: 0px;
+  color: #cccccc;
+}
+
+#disk.ext{
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #cccccc;
+}
+
+#disk.ext2{
+  padding-left: 0px;
+  padding-right: 5px;
+  color: #cccccc;
+}
+
+#mpris.playing {
+  color: #00aadd;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/*
+#clock {
+  font-size:14px;
+  font-weight: bold;
+}
+*/
+#battery icon {
+  color: red;
+}
+
+#battery.charging, #battery.plugged {
+  color: #ffffff;
+  background-color: #26A65B;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.warning:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#network.disconnected {
+  color: #f53c3c;
+}
+
+#temperature.critical {
+  color: #eb4d4b;
+}
+
+#idle_inhibitor.activated {
+  color: #00aadd;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+/*
+
+window#waybar.solo {
+background-color: #FFFFFF;
+}
+
+window#waybar.termite {
+background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+background-color: #000000;
+border: none;
+}
+ */

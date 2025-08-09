@@ -1,8 +1,8 @@
 {
   "accentColor": "#0088cc",
-  "interfaceFontFamily": "Atkinson Hyperlegible",
+  "interfaceFontFamily": "Adwaita Sans,Libertinus Sans",
   "textFontFamily": "Libertinus Serif",
-  "monospaceFontFamily": "ZedMono Nerd Font",
+  "monospaceFontFamily": "GeistMono Nerd Font,ZedMono Nerd Font",
   "theme": "obsidian",
   "baseFontSize": 22,
   "cssTheme": "Minimal",

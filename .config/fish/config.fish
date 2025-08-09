@@ -13,12 +13,12 @@ alias ls="exa --color=always --color-scale --icons --all"
 alias ll="exa --color=always --color-scale --icons --long --all"
 alias nnn="nnn -de"
 alias neofetch="fastfetch"
-alias pt="pter ~/todo.txt"
-alias task="pter ~/todo.txt"
+alias ff="fastfetch"
+alias zl="zellij -l ~/.config/zellij/layouts/default.kdl"
+alias zel="zellij"
 
 # Paths
 fish_add_path /home/noncomplete/.local/bin
-fish_add_path /home/noncomplete/.juliaup/bin
 fish_add_path /home/noncomplete/.cargo/bin
 
 # Variables
@@ -27,6 +27,8 @@ set -x EDITOR nvim
 set -x NNN_OPTS deH
 set fish_greeting
 set -x SHELL "/usr/bin/fish"
+set -x QT_QPA_PLATFROM wayland
+set -x QT_QPA_PLATFORMTHEME qt5ct
 
 # Zoxide
 zoxide init fish | source

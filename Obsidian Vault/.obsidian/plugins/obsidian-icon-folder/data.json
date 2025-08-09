@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "📗",
-      "FarCircleDown",
-      "🔖",
-      "🌻",
-      "RaSunbeams"
+      "LiArrowUpNarrowWide",
+      "RaJigsawPiece",
+      "RaBullets",
+      "FasGraduationCap",
+      "LiScatterChart"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -34,12 +34,21 @@
     "debugMode": false,
     "useInternalPlugins": false
   },
-  "Yet another planner.md": "FarBookmark",
-  "SolarPunk Dreams.md": "🌻",
-  "Study/Math books to read..md": "RaSunbeams",
-  "Random Musings.md": "FarLightbulb",
-  "2 Download.md": "FarCircleDown",
-  "GRE Word List.md": "📗",
-  "GRE Math Notes.md": "📗",
-  "GRE Verbal & Writing.md": "📗"
+  "Yet another planner.md": "LiBookmark",
+  "Book notes": "LiBookCopy",
+  "attachments": "LiLink",
+  "Math books to read..md": "FasNotEqual",
+  "Intro_How_to_study_v1.md": "LiPresentation",
+  "Misc./VIM STUFF.md": "FiEdit",
+  "Misc./Random Musings.md": "LiLightbulb",
+  "Misc./NixOS Migration Guide.md": {
+    "iconName": "RaHammer",
+    "iconColor": "#00aaff"
+  },
+  "Misc./TB(R,W,L).md": "LiDownload",
+  "Misc./Skill Tree.canvas": "LiListTree",
+  "Long-Term Academic Goals.md": "FasGraduationCap",
+  "Bullet Journaling.md": "RaBullets",
+  "Julialang notes.md": "RaJigsawPiece",
+  "Polymath Orbit.canvas": "LiArrowUpNarrowWide"
 }

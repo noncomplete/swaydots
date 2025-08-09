@@ -14,11 +14,11 @@ icons = "material-nf"
 [[block]]
 block = "focused_window"
 [block.format]
-full = " $title.str(w:40, rot_interval:0.4, rot_separator:'   ') |"
-short = " $title.str(w:40) |"
+full = " $title.str(w:25, rot_interval:0.4, rot_separator:'   ') |"
+short = " $title.str(w:25) |"
 [block.theme_overrides]
 idle_bg = "#000000"
-idle_fg = "#00AFFF"
+idle_fg = "#005FFF"
 
 [[block]]
 block = "cpu"
@@ -29,7 +29,7 @@ format_alt = " $icon $frequency{ $boost|} "
 [[block]]
 block = "memory"
 format = " $icon $mem_used_percents.eng(w:2) "
-format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+#format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
 
 [[block]]
 block = "sound"
@@ -42,7 +42,7 @@ block = "net"
 format = " $icon {$signal_strength|Wired connection} ( $speed_down.eng(prefix:K, w:4))"
 [[block.click]]
 button = "left"
-cmd = "exec gnome-terminal -- impala"
+cmd = "exec gnome-terminal -- nmtui"
 
 [[block]]
 block = "temperature"
@@ -52,20 +52,30 @@ interval = 10
 chip = "*-isa-*"
 
 [[block]]
-block = "uptime"
-interval = 600
-
-[[block]]
 block = "time"
 interval = 10
-format = " $icon $timestamp.datetime(f:'%a%Y%m%d')"
+format = " $icon $timestamp.datetime(f:'%a%y%m%d')"
 
 [[block]]
 block = "time"
 interval = 10 
 format = "$timestamp.datetime(f:'%R') "
 [block.theme_overrides]
-idle_fg = "#00afff"
+idle_fg = "#005fff"
+
+[[block]]
+block = "pomodoro"
+format = " $icon { $message|} "
+notify_cmd = "notify-send '{msg}'"
+blocking_cmd = false
+
+[[block]]
+block = "custom"
+command = "echo  "
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "~/scripts/salah_notify.sh"
 
 [[block]]
 block = "notify"
@@ -78,17 +88,17 @@ action = "show"
 button = "right"
 action = "toggle_paused"
 
-[[block]]
-block = "weather"
-autolocate = false
-format = " $icon $temp"
-[block.service]
-name = "metno"
-coordinates = ["24.851","89.3711"]
+#[[block]]
+#block = "weather"
+#autolocate = false
+#format = " $icon $temp"
+#[block.service]
+#name = "metno"
+#coordinates = ["23.8043325","90.3635135"]
 
 [[block]]
 block = "battery"
-format = " $icon $percentage $time "
+format = " $icon $percentage "
 full_format = "   "
 [block.theme_overrides]
-idle_fg = "#00AFFF"
+idle_fg = "#005FFF"

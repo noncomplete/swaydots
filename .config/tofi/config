@@ -207,7 +207,7 @@
 #
 	# The name of the output to appear on. An empty string will use the
 	# default output chosen by the compositor.
-	output = ""
+	output = "eDP-1"
 
 	# Location on screen to anchor the window to.
 	#
@@ -273,7 +273,7 @@
 	# The terminal to run terminal programs in when in drun mode.
 	# This option has no effect if drun-launch is set to true.
 	# Defaults to the value of the TERMINAL environment variable.
-	# terminal = foot
+	#terminal = foot
 
 	# Delay keyboard initialisation until after the first draw to screen.
 	# This option is experimental, and will cause tofi to miss keypresses
