@@ -9,16 +9,17 @@ alias :q="exit"
 alias :wq="exit"
 alias :x="exit"
 alias cat="bat"
-alias ls="exa --color=always --color-scale --icons --all"
-alias ll="exa --color=always --color-scale --icons --long --all"
+alias ls="eza --color=always --color-scale --icons --all"
+alias ll="eza --color=always --color-scale --icons --long --all"
 alias nnn="nnn -de"
 alias neofetch="fastfetch"
 alias ff="fastfetch"
-alias zl="zellij -l ~/.config/zellij/layouts/default.kdl"
-alias zel="zellij"
+#alias zl="zellij -l ~/.config/zellij/layouts/default.kdl"
+#alias zel="zellij"
 
 # Paths
 fish_add_path /home/noncomplete/.local/bin
+fish_add_path /home/noncomplete/.juliaup/bin
 fish_add_path /home/noncomplete/.cargo/bin
 
 # Variables
@@ -83,6 +84,7 @@ function y
     end
     rm -f -- "$tmp"
 end
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

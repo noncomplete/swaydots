@@ -1,9 +1,9 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "GeistMono Nerd Font";
-  font-weight: bolder;
+  font-family: "ZedMono Nerd Font";
+  font-weight: bold;
   /*font-family: "D2CodingLigature Nerd Mono";*/
-  font-size: 10px;
+  font-size: 11px;
   min-height: 0;
 }
 
@@ -29,7 +29,7 @@ window#waybar.hidden {
 #window {
   margin: 2px;
   padding-left: 10px;
-  padding-right: 40px;
+  padding-right: 20px;
   background-color: rgba(0,0,0,0.3);
   font-size:12px;
   font-weight: bold;

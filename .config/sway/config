@@ -23,7 +23,7 @@ set $term wezterm
 #set $scripts /home/noncomplete/scripts
 # borders
 titlebar_border_thickness 0
-titlebar_padding 20 1
+titlebar_padding 20 0
 title_align center
 default_border none
 hide_edge_borders smart
@@ -33,57 +33,57 @@ show_marks yes
 #focus_follows_mouse no
 
 # fonts
-font pango:ZedMono Nerd Font ExtraBold 8
+font pango:ZedMono Nerd Font 0.5
+
 
 ### Gtk settings
 exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme "Materia-compact"
-  gsettings set org.gnome.desktop.interface font-name "Adwaita Sans Medium 10"
-  gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+#  gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+#  gsettings set org.gnome.desktop.interface font-name "Adwaita Sans Medium 11"
+#  gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
   gsettings set org.gnome.desktop.privacy remember-recent-files 'false'
 }
 
 #
 ### Program keybinds and autostart
 #
-bindsym $mod+n exec mousepad
-bindsym $mod+F3 exec thunar
-bindsym $mod+F1 exec ~/scripts/launch_mpd.sh
-bindsym $mod+Shift+F1 exec ~/scripts/launch_swaync.sh 
+bindsym $mod+n exec leafpad
+bindsym $mod+F3 exec pcmanfm
+#bindsym $mod+F1 exec ~/scripts/launch_mpd.sh
+#bindsym $mod+Shift+F1 exec ~/scripts/launch_swaync.sh 
 bindsym $mod+Shift+F3 exec wezterm -e fish -c y
-bindsym $mod+F5 exec cava
-bindsym $mod+F6 exec rofimoji --use-icons --selector wofi --clipboarder wl-copy --typer wtype
+#bindsym $mod+F5 exec cava
+#bindsym $mod+F6 exec rofimoji --use-icons --selector wofi --clipboarder wl-copy --typer wtype
 bindsym $mod+F4 exec bash -c "QT_QPA_PLATFORM=wayland Telegram"
 bindsym $mod+F2 exec zen-browser 
 bindsym $mod+Shift+F2 exec brave --password-store=basic
-bindsym $mod+Alt+F2 exec floorp
+#bindsym $mod+Alt+F2 exec floorp
 bindsym $mod+Print exec bash -e grimshot --notify save output /home/noncomplete/Pictures/scr/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec bash -e grimshot --notify copy area
-bindsym $mod+Alt+Print exec bash -e grimshot --notify copy area
 #bindsym $mod+Alt+n exec /home/noncomplete/scripts/launch_swaync.sh
 #bindsym $mod+Alt+m exec /home/noncomplete/scripts/launch_mpd.sh
 bindsym $mod+p exec bash -e /home/noncomplete/scripts/cliphist_paste.sh
 bindsym $mod+Shift+p exec bash -e /home/noncomplete/scripts/cliphist_delete.sh
-bindsym $mod+Shift+b exec gnome-terminal -- bash -c /home/noncomplete/scripts/book_open.sh
+#bindsym $mod+Shift+b exec gnome-terminal -- bash -c /home/noncomplete/scripts/book_open.sh
 
 # autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id udiskie
 exec_always --no-startup-id /home/noncomplete/scripts/audio_idle.sh
+exec_always --no-startup-id sway-audio-idle-inhibit
 exec --no-startup-id /home/noncomplete/scripts/launch_swaync.sh
 #exec --no-startup-id /home/noncomplete/scripts/launch_mpd.sh
 exec wl-paste --watch cliphist store
 exec autotiling-rs -w 3 4 5 6
 exec --no-startup-id fish -c swayrd
-exec_always ibus start --type wayland
+#exec_always ibus start --type wayland
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /home/noncomplete/Pictures/wallhaven-d67ew3.jpg fill #000000
+output * bg /home/noncomplete/Desktop/wallpaper fill #000000
 #output * bg /home/noncomplete/Pictures/wallhaven-72xydo.png fill #000000
-output * bg /home/noncomplete/Desktop/wallhaven-13gqw1.jpg fill #000000
+#output * bg /home/noncomplete/Desktop/wallhaven-13gqw1.jpg fill #000000
 #output eDP-1 bg /home/noncomplete/Downloads/ryoji-hayasaka-Pi2YfVX-TMY-unsplash.jpg fill #000000
 #output HDMI-A-1 bg /home/noncomplete/Downloads/alex-lvrs-Zg1KAFDbDJg-unsplash.jpg fill #000000
 
@@ -97,10 +97,10 @@ output * bg /home/noncomplete/Desktop/wallhaven-13gqw1.jpg fill #000000
 #}
 
 ### MODE Vertical secondary
-output {
-  HDMI-A-1 position 1366,0 mode 1440x900@59.887Hz
-  eDP-1 position 0,0 mode 1366x768@60Hz
-}
+#output {
+#  HDMI-A-1 position 1366,0 mode 1440x900@59.887Hz
+#  eDP-1 position 0,0 mode 1366x768@60Hz
+#}
 
 bindsym $mod+Shift+x exec swaymsg "output HDMI-A-1 disable"
 
@@ -145,7 +145,7 @@ input type:touchpad {
     bindsym $mod+Return exec $term
 
     # Start a floating terminal
-    bindsym $mod+Shift+Return exec gnome-terminal
+    bindsym $mod+Shift+Return exec foot
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -374,13 +374,12 @@ for_window [app_id="mpv"] inhibit_idle visible
 for_window [app_id="mousepad"] floating enable
 for_window [app_id="org.pwmt.zathura"] inhibit_idle fullscreen
 for_window [app_id="nwg-displays"] floating enable
-for_window [app_id="org.gnome.Terminal"] floating enable
+for_window [app_id="foot"] floating enable
 for_window [app_id="io.bassi.Amberol"] floating enable
 for_window [app_id="io.bassi.Amberol"] inhibit_idle
 for_window [app_id="gnome-policykit-agent"] floating enable
 for_window [app_id="cava"] floating enable
 for_window [app_id="whatsapp-for-linux"] floating enable
-for_window [app_id="org.wezfurlong.wezterm"] border 1 px
 for_window [title="Picture-in-Picture"] floating enable
 for_window [title="ibus-ui-gtk3"] floating enable
 for_window [title="File Operation Progress"] floating enable
@@ -471,15 +470,15 @@ bar {
 
 ### Colors (catppuccin)
 #class 	                 border     background  text 	indicator  child_border
-client.focused           #000000    #000000   #00aadd   #00aabb    #000000
-client.focused_inactive  #202020    #000000   #3F3F3F   #000000    #000000
-client.unfocused         #101010    #000000   #3F3F3F   #000000    #000000
-client.urgent            $peach       $crust      $peach      $overlay0    $peach
-client.placeholder       $overlay0    $crust      $text       $overlay0    $overlay0
+client.focused           #0066aa    #0066aa   #0066aa   #0066aa    #0066aa
+client.focused_inactive  #000000    #000000   #000000   #000000    #000000
+client.unfocused         #000000    #000000   #000000   #000000    #000000
+client.urgent            $peach       $peach      $peach      $peach    $peach
+client.placeholder       $overlay0    $overlay0      $overlay0       $overlay0    $overlay0
 client.background        #000000
 
 
 #
 ### Apply settings from swaysettings-git
 #
-include /etc/sway/config.d/*
+include ~/.config/sway/.generated_settings/*.conf

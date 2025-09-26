@@ -1,12 +1,12 @@
 {
     "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
+    "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 22, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
-    "modules-right": ["mpris", "idle_inhibitor", "disk", "disk#ext", "disk#ext2", "temperature", "cpu", "memory", "network", "pulseaudio", "backlight", "custom/screentemp", "battery", "custom/notification", "custom/pomo", "clock", "tray"],
+    "modules-right": ["mpris", "idle_inhibitor", "disk", "disk#ext2", "temperature", "cpu", "memory", "network", "pulseaudio", "backlight", "custom/screentemp", "battery", "custom/pomo", "clock", "custom/notification", "tray"],
     // Modules configuration
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -27,7 +27,7 @@
         "format": "  {text} ",
         "exec": "~/.cargo/bin/pomodoro-cli status --format json --time-format digital",
         "return-type": "json",
-        "on-click": "~/.cargo/bin/pomodoro-cli start --duration 45:00 --add 5m --notify",
+        "on-click": "~/.cargo/bin/pomodoro-cli start --duration 45:00 --notify",
         "on-click-middle": "~/.cargo/bin/pomodoro-cli pause",
         "on-click-right": "~/.cargo/bin/pomodoro-cli stop",
         "interval": 1
@@ -56,9 +56,9 @@
 	      "format": "{status_icon}",
 	      "format-paused": "{status_icon}",
 	      "status-icons": {
-		        "paused": "⏸",
-		        "playing": "▶",
-            "stopped": "-",
+		        "paused": "󰏤",
+		        "playing": " ",
+            "stopped": ".",
 	      },
 	      // "ignored-players": ["firefox"]
     },
@@ -67,14 +67,9 @@
         "format": "  {free}+",
         "path": "/"
     },
-    "disk#ext": {
-        "interval": 30,
-        "format": "{free}+",
-        "path": "/mnt/bbb69f90-d83b-444e-a9d6-7db272b6793f"
-    },
     "disk#ext2": {
         "interval": 30,
-        "format": "{free}",
+        "format": "{free} ",
         "path": "/run/media/noncomplete/the_hoard"
     },
     "idle_inhibitor": {
@@ -93,7 +88,7 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         //"format-alt": "{:%Y-%m-%d}"
         //"format": "{:L%Y-%m-%d<small>[%a]</small> <tt><small>%p</small></tt>%I:%M}"
-        "format": "󰃭 {:%Y-%m-%d (%a) %H:%M}"
+        "format": " {:%Y-%m-%d (%a) %H:%M}"
     },
     "cpu": {
         "format": " {usage:3}%",
@@ -153,7 +148,7 @@
         "format-disconnected": "Disconnected ⚠ {ifname}",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "interval": 2,
-        "on-click-right": "gnome-terminal -- nmtui",
+        "on-click-right": "foot -- nmtui",
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
