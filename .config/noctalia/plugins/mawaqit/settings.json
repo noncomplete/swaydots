@@ -1,0 +1,13 @@
+{
+  "city": "Bogra",
+  "country": "BD",
+  "method": 1,
+  "showCountdown": true,
+  "showNotifications": false,
+  "playAzan": false,
+  "azanFile": "azan1.mp3",
+  "school": 1,
+  "hijriDayOffset": 0,
+  "weekStartDay": 1,
+  "_cacheData": null
+}

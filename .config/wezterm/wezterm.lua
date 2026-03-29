@@ -41,12 +41,12 @@ end
 -- Spawn a fish shell in login mode
 config.default_prog = { "/usr/bin/fish", "-l" }
 config.font = wezterm.font("ZedMono Nerd Font", { weight = "Medium", italic = false })
-config.font_size = 12
-config.color_scheme = "UltraDark"
+config.font_size = 11
+config.color_scheme = "Noctalia"
 --config.color_scheme = 'Grayscale Dark (base16)'
 --config.colors = { background = "#101010", cursor_bg = "#00AFFF", cursor_fg = "#000000" }
 config.colors = { background = "#000000", cursor_bg = "#00AADD", cursor_fg = "#000000" }
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.90
 config.hide_mouse_cursor_when_typing = false
 --config.cursor_blink_rate = 100
 --config.cursor_blink_ease_in = "Constant"

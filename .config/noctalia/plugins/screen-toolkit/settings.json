@@ -1,0 +1,18 @@
+{
+  "stateIsRunning": false,
+  "stateActiveTool": "colorpicker",
+  "installedLangs": [
+    "eng"
+  ],
+  "transAvailable": false,
+  "stateMirrorVisible": false,
+  "resultHex": "#B3DAF9",
+  "resultRgb": "rgb(179, 218, 249)",
+  "resultHsv": "hsv(207, 28%, 98%)",
+  "resultHsl": "hsl(207, 85%, 84%)",
+  "colorCapturePath": "/tmp/screen-toolkit-colorpicker.png",
+  "colorHistory": [
+    "#B3DAF9",
+    "#00324F"
+  ]
+}

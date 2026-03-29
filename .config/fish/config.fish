@@ -8,11 +8,12 @@ alias vi="/usr/bin/vim"
 alias :q="exit"
 alias :wq="exit"
 alias :x="exit"
-alias cat="bat"
+alias tp="/home/noncomplete/.local/share/pipx/venvs/typer-cli-tool/bin/typer"
+alias tt="ttyper -l english1000 -w 30"
+#alias cat="bat"
 alias ls="eza --color=always --color-scale --icons --all"
 alias ll="eza --color=always --color-scale --icons --long --all"
 alias nnn="nnn -de"
-alias neofetch="fastfetch"
 alias ff="fastfetch"
 #alias zl="zellij -l ~/.config/zellij/layouts/default.kdl"
 #alias zel="zellij"
@@ -24,6 +25,8 @@ fish_add_path /home/noncomplete/.cargo/bin
 
 # Variables
 set -x NNN_TMPFILE "/home/noncomplete/.config/nnn/.lastd"
+set -x NNN_FIFO "/tmp/nnn.fifo"
+set -x NNN_PLUG "d:dragdrop;p:preview-tui"
 set -x EDITOR nvim
 set -x NNN_OPTS deH
 set fish_greeting
@@ -33,9 +36,6 @@ set -x QT_QPA_PLATFORMTHEME qt5ct
 
 # Zoxide
 zoxide init fish | source
-
-# Starship
-starship init fish | source
 
 # <<< nnn file manager >>>
 
@@ -99,3 +99,5 @@ else
 end
 # <<< conda initialize <<<
 
+# Prompt
+starship init fish | source

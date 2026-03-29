@@ -33,13 +33,13 @@ show_marks yes
 #focus_follows_mouse no
 
 # fonts
-font pango:ZedMono Nerd Font 0.5
+font pango:IBM Plex Sans Bold 8
 
 
 ### Gtk settings
 exec_always {
 #  gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-#  gsettings set org.gnome.desktop.interface font-name "Adwaita Sans Medium 11"
+#  gsettings set org.gnome.desktop.interface font-name "Adwaita Sans Medium 10"
 #  gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
   gsettings set org.gnome.desktop.privacy remember-recent-files 'false'
 }
@@ -48,53 +48,36 @@ exec_always {
 ### Program keybinds and autostart
 #
 bindsym $mod+n exec leafpad
-bindsym $mod+F3 exec pcmanfm
-#bindsym $mod+F1 exec ~/scripts/launch_mpd.sh
-#bindsym $mod+Shift+F1 exec ~/scripts/launch_swaync.sh 
+bindsym $mod+F3 exec thunar
+bindsym $mod+F1 exec qs -c noctalia-shell ipc call controlCenter toggle
 bindsym $mod+Shift+F3 exec wezterm -e fish -c y
-#bindsym $mod+F5 exec cava
-#bindsym $mod+F6 exec rofimoji --use-icons --selector wofi --clipboarder wl-copy --typer wtype
-bindsym $mod+F4 exec bash -c "QT_QPA_PLATFORM=wayland Telegram"
-bindsym $mod+F2 exec zen-browser 
-bindsym $mod+Shift+F2 exec brave --password-store=basic
-#bindsym $mod+Alt+F2 exec floorp
+bindsym $mod+F6 exec qs -c noctalia-shell ipc call launcher emoji
+bindsym $mod+F4 exec Telegram
+bindsym $mod+F2 exec zen-browser
+bindsym $mod+Alt+F2 exec zen-browser --private-window
+bindsym $mod+Shift+F2 exec brave-beta
 bindsym $mod+Print exec bash -e grimshot --notify save output /home/noncomplete/Pictures/scr/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec bash -e grimshot --notify copy area
-#bindsym $mod+Alt+n exec /home/noncomplete/scripts/launch_swaync.sh
-#bindsym $mod+Alt+m exec /home/noncomplete/scripts/launch_mpd.sh
 bindsym $mod+p exec bash -e /home/noncomplete/scripts/cliphist_paste.sh
 bindsym $mod+Shift+p exec bash -e /home/noncomplete/scripts/cliphist_delete.sh
-#bindsym $mod+Shift+b exec gnome-terminal -- bash -c /home/noncomplete/scripts/book_open.sh
+bindsym $mod+backslash exec bash -e /home/noncomplete/scripts/song_notify.sh
 
 # autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id udiskie
-exec_always --no-startup-id /home/noncomplete/scripts/audio_idle.sh
-exec_always --no-startup-id sway-audio-idle-inhibit
-exec --no-startup-id /home/noncomplete/scripts/launch_swaync.sh
-#exec --no-startup-id /home/noncomplete/scripts/launch_mpd.sh
+exec --no-startup-id qs -c noctalia-shell
+exec_always /home/noncomplete/scripts/audio_idle.sh
 exec wl-paste --watch cliphist store
-exec autotiling-rs -w 3 4 5 6
 exec --no-startup-id fish -c swayrd
-#exec_always ibus start --type wayland
-
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/noncomplete/Desktop/wallpaper fill #000000
-#output * bg /home/noncomplete/Pictures/wallhaven-72xydo.png fill #000000
-#output * bg /home/noncomplete/Desktop/wallhaven-13gqw1.jpg fill #000000
-#output eDP-1 bg /home/noncomplete/Downloads/ryoji-hayasaka-Pi2YfVX-TMY-unsplash.jpg fill #000000
-#output HDMI-A-1 bg /home/noncomplete/Downloads/alex-lvrs-Zg1KAFDbDJg-unsplash.jpg fill #000000
 
 #
 # Example Monitor configuration:
 #
 ### MODE Normal
-#output {
-#  HDMI-A-1 position 1366,0 mode 1024x786@84.997Hz
-#  eDP-1 position 0,0 mode 1366x786@60Hz
-#}
+output {
+  HDMI-A-1 position 1366,0 mode 1024x786@84.997Hz
+  eDP-1 position 0,0 mode 1366x786@60Hz
+}
 
 ### MODE Vertical secondary
 #output {
@@ -115,12 +98,11 @@ bindsym $mod+Shift+x exec swaymsg "output HDMI-A-1 disable"
 #         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 #         before-sleep 'bash -e /home/noncomplete/lock.sh'
 #
-exec_always /home/noncomplete/scripts/sway_idle.sh
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 ## A manual lock for moving away from the computer
-bindsym $mod+z exec /home/noncomplete/scripts/lock.sh
+bindsym $mod+z exec qs -c noctalia-shell ipc call lockScreen lock
 
 ### Input configuration
 #
@@ -151,11 +133,12 @@ input type:touchpad {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    set $drun tofi-drun
+    set $drun qs -c noctalia-shell ipc call launcher toggle
     bindsym $mod+d exec $drun
-    bindsym $mod+Tab exec fish -c "swayr switch-window"
-    bindsym $mod+Shift+Tab exec fish -c "swayr steal-window"
-    bindsym $mod+Delete exec fish -c "swayr quit-window"
+    bindsym $mod+Tab exec qs -c noctalia-shell ipc call launcher windows
+    bindsym Alt+Tab exec swayr switch-to-urgent-or-lru-window
+    bindsym $mod+Shift+Tab exec swayr steal-window
+    bindsym $mod+Delete exec swayr quit-window
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -169,7 +152,7 @@ input type:touchpad {
 
     # Exit sway (logs you out of your Wayland session)
     #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+e exec /home/noncomplete/scripts/wofipower.sh
+    bindsym $mod+Shift+e exec qs -c noctalia-shell ipc call sessionMenu toggle
 #
 # Moving around:
 #
@@ -197,6 +180,7 @@ input type:touchpad {
 #
 # Workspaces:
 #
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1; layout tabbed
     bindsym $mod+2 workspace number 2; layout tabbed
@@ -209,28 +193,28 @@ input type:touchpad {
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+1 move container to workspace number 1 
+    bindsym $mod+Shift+2 move container to workspace number 2 
+    bindsym $mod+Shift+3 move container to workspace number 3 
+    bindsym $mod+Shift+4 move container to workspace number 4 
+    bindsym $mod+Shift+5 move container to workspace number 5 
+    bindsym $mod+Shift+6 move container to workspace number 6 
+    bindsym $mod+Shift+7 move container to workspace number 7 
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # Move focused container to a workspace and keep focus. 
-    bindsym $mod+Ctrl+1 [con_id=__focused__] move to workspace 1, focus
-    bindsym $mod+Ctrl+2 [con_id=__focused__] move to workspace 2, focus
-    bindsym $mod+Ctrl+3 [con_id=__focused__] move to workspace 3, focus
-    bindsym $mod+Ctrl+4 [con_id=__focused__] move to workspace 4, focus
-    bindsym $mod+Ctrl+5 [con_id=__focused__] move to workspace 5, focus
-    bindsym $mod+Ctrl+6 [con_id=__focused__] move to workspace 6, focus
-    bindsym $mod+Ctrl+7 [con_id=__focused__] move to workspace 7, focus
-    bindsym $mod+Ctrl+8 [con_id=__focused__] move to workspace 8, focus
-    bindsym $mod+Ctrl+9 [con_id=__focused__] move to workspace 9, focus
-    bindsym $mod+Ctrl+0 [con_id=__focused__] move to workspace 10, focus
+    bindsym $mod+Ctrl+1 [con_id=__focused__] move to workspace number 1, focus
+    bindsym $mod+Ctrl+2 [con_id=__focused__] move to workspace number 2, focus
+    bindsym $mod+Ctrl+3 [con_id=__focused__] move to workspace number 3, focus
+    bindsym $mod+Ctrl+4 [con_id=__focused__] move to workspace number 4, focus
+    bindsym $mod+Ctrl+5 [con_id=__focused__] move to workspace number 5, focus
+    bindsym $mod+Ctrl+6 [con_id=__focused__] move to workspace number 6, focus
+    bindsym $mod+Ctrl+7 [con_id=__focused__] move to workspace number 7, focus
+    bindsym $mod+Ctrl+8 [con_id=__focused__] move to workspace number 8, focus
+    bindsym $mod+Ctrl+9 [con_id=__focused__] move to workspace number 9, focus
+    bindsym $mod+Ctrl+0 [con_id=__focused__] move to workspace number 10, focus
     
 
     bindsym $mod+x move workspace to output left
@@ -249,7 +233,7 @@ input type:touchpad {
     # respectively.
     bindsym $mod+b splith
     bindsym $mod+v splitv
-    #bindsym $mod+q splitt
+    bindsym $mod+q splitt
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -371,12 +355,13 @@ for_window [class="Spotify"] inhibit_idle visible
 #wayland
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle visible
-for_window [app_id="mousepad"] floating enable
+for_window [app_id="leafpad"] floating enable
 for_window [app_id="org.pwmt.zathura"] inhibit_idle fullscreen
 for_window [app_id="nwg-displays"] floating enable
 for_window [app_id="foot"] floating enable
 for_window [app_id="io.bassi.Amberol"] floating enable
-for_window [app_id="io.bassi.Amberol"] inhibit_idle
+for_window [app_id="io.bassi.Amberol"] inhibit_idle visible
+for_window [app_id="spotify"] inhibit_idle visible
 for_window [app_id="gnome-policykit-agent"] floating enable
 for_window [app_id="cava"] floating enable
 for_window [app_id="whatsapp-for-linux"] floating enable
@@ -386,15 +371,28 @@ for_window [title="File Operation Progress"] floating enable
 for_window [title="Extension: (Tree Style Tab) - New Bookmarks — Mozilla Firefox"] floating enable
 for_window [app_id="zen"] inhibit_idle fullscreen
 
+# Workspace specific 
+#assign [app_id="zen"] 2 
+#assign [app_id="brave-browser"] 2 
+#assign [app_id="org.telegram.desktop"] 2 
+#assign [class="obsidian"] 3 
+#assign [app_id="Zotero"] 3 
+#assign [app_id="org.mozilla.Thunderbird"] 4 
+#assign [app_id="YACReaderLibrary"] 5 
+#assign [app_id="YACReader"] 5 
+#assign [app_id="calibre-ebook-viewer"] 5 
+#assign [app_id="mpv"] 7 
+#assign [class="Spotify"] 6 
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bindsym $mod+m bar mode toggle
 
-bar {
-  swaybar_command waybar
-}
+#bar {
+#  swaybar_command waybar
+#}
 
 # Primary bar 
 #bar {
@@ -469,10 +467,10 @@ bar {
 #client.placeholder        #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 ### Colors (catppuccin)
-#class 	                 border     background  text 	indicator  child_border
-client.focused           #0066aa    #0066aa   #0066aa   #0066aa    #0066aa
-client.focused_inactive  #000000    #000000   #000000   #000000    #000000
-client.unfocused         #000000    #000000   #000000   #000000    #000000
+#class 	                 border     background  text 	  indicator  child_border
+client.focused           #638AA9    #638AA9    #638AA9   #638AA9    #638AA9
+client.focused_inactive  #000000    #000000    #000000   #000000    #000000
+client.unfocused         #000000    #000000    #000000   #000000    #000000
 client.urgent            $peach       $peach      $peach      $peach    $peach
 client.placeholder       $overlay0    $overlay0      $overlay0       $overlay0    $overlay0
 client.background        #000000
@@ -482,3 +480,6 @@ client.background        #000000
 ### Apply settings from swaysettings-git
 #
 include ~/.config/sway/.generated_settings/*.conf
+
+include ~/.config/sway/noctalia
+

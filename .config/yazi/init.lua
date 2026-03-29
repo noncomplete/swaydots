@@ -1,3 +1,5 @@
+require("starship"):setup()
+
 -- You can configure your bookmarks by lua language
 local bookmarks = {}
 
@@ -6,7 +8,6 @@ local home_path = ya.target_family() == "windows" and os.getenv("USERPROFILE") o
 if ya.target_family() == "windows" then
   table.insert(bookmarks, {
     tag = "Scoop Local",
-    
     path = (os.getenv("SCOOP") or home_path .. "\\scoop") .. "\\",
     key = "p"
   })
@@ -35,7 +36,3 @@ require("yamb"):setup {
   path = (ya.target_family() == "windows" and os.getenv("APPDATA") .. "\\yazi\\config\\bookmark") or
         (os.getenv("HOME") .. "/.config/yazi/bookmark"),
 }
-
-require("starship"):setup()
-
---require("simple-status"):setup()

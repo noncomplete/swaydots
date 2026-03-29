@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# use with greetd (tuigreet)
+# install at /usr/bin/
+
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_DESKTOP=sway

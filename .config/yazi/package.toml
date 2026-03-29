@@ -1,104 +1,54 @@
 [[plugin.deps]]
-use = "yazi-rs/plugins:full-border"
-rev = "4b027c7"
-hash = "1f3dad061209081a6b04dd6ff2cb06c7"
-
-[[plugin.deps]]
-use = "KKV9/compress"
-rev = "60b24af"
-hash = "ee025be766240cc98e671754ac836da3"
-
-[[plugin.deps]]
-use = "pirafrank/what-size"
-rev = "f1c6b69"
-hash = "6e789212eb41d937bab04877ca361099"
-
-[[plugin.deps]]
-use = "h-hg/yamb"
-rev = "22af003"
-hash = "7cc42012a7c2099f80064d228feb8d44"
-
-[[plugin.deps]]
-use = "ndtoan96/ouch"
-rev = "2496cd9"
-hash = "5b9dea47776a30946cfbf83232d18fb1"
-
-[[plugin.deps]]
-use = "kirasok/torrent-preview"
-rev = "4ca5996"
-hash = "6af40ce6b2cd849b5fa32de04a598b06"
-
-[[plugin.deps]]
-use = "Ape/open-with-cmd"
-rev = "433cf30"
-hash = "86e0312b01bc5762813c6c1d0517f073"
-
-[[plugin.deps]]
-use = "ndtoan96/mime"
-rev = "0ba4bb2"
-hash = "50eca042998a566913680c58d8a77b7f"
+use = "boydaihungst/mediainfo"
+rev = "6fbed8d"
+hash = "57ae6b43c477e117802f176683b78e74"
 
 [[plugin.deps]]
 use = "kirasok/epub-preview"
-rev = "521feb1"
-hash = "9aed469134b5c89fc4014ce278307ae3"
-
-[[plugin.deps]]
-use = "navysky12/comicthumb"
-rev = "eeee150"
-hash = "4229fe2186012b09ef2cd8f970639da9"
-
-[[plugin.deps]]
-use = "Sonico98/exifaudio"
-rev = "7ff7141"
-hash = "666ccba55119fba4c25b8ad354b2855c"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:jump-to-char"
-rev = "4b027c7"
-hash = "a670c03eb3760812e044a24f94cedc55"
-
-[[plugin.deps]]
-use = "AnirudhG07/plugins-yazi:copy-file-contents"
-rev = "524c52c"
-hash = "27c50e6bc15c09096505b805b238ade0"
-
-[[plugin.deps]]
-use = "Sonico98/allmytoes"
-rev = "1e43bfd"
-hash = "8f9bfa292af429a27b81d424085ede67"
+rev = "2e8079e"
+hash = "46037d1e5d2e1fa7e155babbf8e49812"
 
 [[plugin.deps]]
 use = "AnirudhG07/nbpreview"
-rev = "f8879b3"
-hash = "d378328e5d0a1b9fb9f04ab3aade4575"
+rev = "b504594"
+hash = "b83919985400521dee78e1c352b5d9db"
 
 [[plugin.deps]]
-use = "grappas/wl-clipboard"
-rev = "c4edc4f"
-hash = "51ff959c3c26cb3889589a0f8d394f14"
+use = "yazi-rs/plugins:jump-to-char"
+rev = "1962818"
+hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:hide-preview"
-rev = "8945e54"
-hash = "55904f17e1053cfb91dacd9015a99f9d"
+use = "h-hg/yamb"
+rev = "5f2e22e"
+hash = "699fe07e0d2d1b4af8dafb84168eeb04"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "cb6e8ec"
+hash = "424ada4807b20ccd4fc85d1d7c26d1e4"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "179ebf6"
+hash = "57056b9728006881d580ccabe8154a9c"
+
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "e3d430f"
+hash = "d29c1ffa99099181faf8c01d1f59aa4c"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "d1cd0a3"
-hash = "d1fee6d0f74cb52d4e031dc6b9207f31"
+rev = "eca1861"
+hash = "e519d894e94ded741e06aae4d4775981"
 
 [[plugin.deps]]
-use = "Ape/simple-status"
-rev = "d0da104"
-hash = "68603fdd1dcaf415227e2c77a9317947"
+use = "Joao-Queiroga/drag"
+rev = "3dff129"
+hash = "4e3f1669b6454a80fdc61b2b4f9305b0"
 
 [[flavor.deps]]
-use = "dangooddd/kanagawa"
-rev = "d98f0c3"
-hash = "cada780385f75abbcfbf5343256b441"
-
-[[flavor.deps]]
-use = "BennyOe/onedark"
-rev = "fa1da70"
-hash = "b644cb6471caf78333fc1b3940ba3ca9"
+use = "gosxrgxx/flexoki-dark"
+rev = "25d28ce"
+hash = "8e6dd7e42a127173e4535993d3e0e393"
