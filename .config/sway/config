@@ -47,20 +47,19 @@ exec_always {
 #
 ### Program keybinds and autostart
 #
-bindsym $mod+n exec leafpad
-bindsym $mod+F3 exec thunar
 bindsym $mod+F1 exec qs -c noctalia-shell ipc call controlCenter toggle
-bindsym $mod+Shift+F3 exec wezterm -e fish -c y
-bindsym $mod+F6 exec qs -c noctalia-shell ipc call launcher emoji
-bindsym $mod+F4 exec Telegram
-bindsym $mod+F2 exec zen-browser
-bindsym $mod+Alt+F2 exec zen-browser --private-window
+bindsym $mod+F2 exec zen-browser 
 bindsym $mod+Shift+F2 exec brave-beta
+bindsym $mod+Alt+F2 exec zen-browser --private-window
+bindsym $mod+F3 exec thunar
+bindsym $mod+F4 exec qs -c noctalia-shell ipc call network togglePanel
+bindsym $mod+F5 exec qs -c noctalia-shell ipc call bluetooth togglePanel
+bindsym $mod+F6 exec qs -c noctalia-shell ipc call launcher emoji
 bindsym $mod+Print exec bash -e grimshot --notify save output /home/noncomplete/Pictures/scr/$(date +%F-%T).png
 bindsym $mod+Shift+Print exec bash -e grimshot --notify copy area
-bindsym $mod+p exec bash -e /home/noncomplete/scripts/cliphist_paste.sh
-bindsym $mod+Shift+p exec bash -e /home/noncomplete/scripts/cliphist_delete.sh
-bindsym $mod+backslash exec bash -e /home/noncomplete/scripts/song_notify.sh
+bindsym $mod+p exec qs -c noctalia-shell ipc call launcher emoji
+bindsym $mod+m exec qs -c noctalia-shell ipc call media toggle
+bindsym $mod+n exec leafpad
 
 # autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -69,6 +68,13 @@ exec --no-startup-id qs -c noctalia-shell
 exec_always /home/noncomplete/scripts/audio_idle.sh
 exec wl-paste --watch cliphist store
 exec --no-startup-id fish -c swayrd
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#output * bg /home/noncomplete/Desktop/wallpaper fill #000000
+#output eDP-1 bg /home/noncomplete/Downloads/ryoji-hayasaka-Pi2YfVX-TMY-unsplash.jpg fill #000000
+#output HDMI-A-1 bg /home/noncomplete/Downloads/alex-lvrs-Zg1KAFDbDJg-unsplash.jpg fill #000000
 
 #
 # Example Monitor configuration:
@@ -137,8 +143,6 @@ input type:touchpad {
     bindsym $mod+d exec $drun
     bindsym $mod+Tab exec qs -c noctalia-shell ipc call launcher windows
     bindsym Alt+Tab exec swayr switch-to-urgent-or-lru-window
-    bindsym $mod+Shift+Tab exec swayr steal-window
-    bindsym $mod+Delete exec swayr quit-window
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -388,8 +392,6 @@ for_window [app_id="zen"] inhibit_idle fullscreen
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bindsym $mod+m bar mode toggle
-
 #bar {
 #  swaybar_command waybar
 #}
