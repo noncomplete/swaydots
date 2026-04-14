@@ -52,7 +52,7 @@ Item {
   function getModeIcon() {
     if (!mainInstance) return "clock"
     if (mainInstance.pomodoroSoundPlaying) return "bell-ringing"
-    if (mainInstance.pomodoroMode === modeWork) return "brain"
+    if (mainInstance.pomodoroMode === modeWork) return "clock"
     if (mainInstance.pomodoroMode === modeShortBreak) return "coffee"
     if (mainInstance.pomodoroMode === modeLongBreak) return "bed"
     return "clock"

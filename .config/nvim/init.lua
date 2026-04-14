@@ -37,6 +37,7 @@ vim.opt.rtp:prepend(lazypath)
 
 ------ Options -------
 vim.cmd([[set nrformats+=alpha]])
+vim.cmd([[set title]])
 vim.opt.winborder = "rounded"
 vim.opt.showmode = false
 vim.opt.tabstop = 2
@@ -172,11 +173,30 @@ require("lazy").setup({
 			{ 'JuliaEditorSupport/julia-vim', lazy = true},
 			{'justinmk/vim-sneak', lazy=false}, --s<char1><char2> to jump
 			{'ya2s/nvim-cursorline', lazy=false},
+			--colorschemes
+			--{'vague-theme/vague.nvim', lazy = false},
+			{
+  			"oskarnurm/koda.nvim",
+  			lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  			priority = 1000, -- make sure to load this before all the other start plugins
+  			config = function()
+    			-- require("koda").setup({ transparent = true })
+    			vim.cmd("colorscheme koda-dark")
+  			end,
+			},
+			--{'Abstract-IDE/Abstract-cs', lazy = false},
+			--{'mellow-theme/mellow.nvim', lazy = false},
+			--{
+    	--	'barrientosvctor/abyss.nvim',
+    	--	lazy = false,
+    	--	priority = 1000,
+    	--	opts = {}
+			--}
 		},
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "miniwinter" } },
+  install = { colorscheme = { "koda-dark" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
@@ -208,7 +228,7 @@ require('mini.starter').setup({
 	header=" █▄ █ █▀█ █▄ █ █▀▀ █▀█ █▀▄▀█ █▀█ █   █▀▀ ▀█▀ █▀▀\n █ ▀█ █▄█ █ ▀█ █▄▄ █▄█ █ ▀ █ █▀▀ █▄▄ ██▄  █  ██▄\n"
 })
 require('mini.icons').setup()
-require('mini.colors').setup({})
+--require('mini.colors').setup({})
 require('mini.indentscope').setup()
 require('mini.git').setup()
 require('mini.diff').setup()
@@ -216,8 +236,8 @@ require('mini.statusline').setup()
 require('mini.tabline').setup()
 require('mini.trailspace').setup()
 
-vim.cmd.colorscheme('miniwinter')
-MiniColors.get_colorscheme():add_transparency():apply()
+--vim.cmd.colorscheme('miniwinter')
+--MiniColors.get_colorscheme():add_transparency():apply()
 
 -- Lualine
 --require('lualine').setup {

@@ -1,18 +1,22 @@
 {
   "stateIsRunning": false,
-  "stateActiveTool": "colorpicker",
+  "stateActiveTool": "",
   "installedLangs": [
     "eng"
   ],
-  "transAvailable": false,
+  "transAvailable": true,
   "stateMirrorVisible": false,
-  "resultHex": "#B3DAF9",
-  "resultRgb": "rgb(179, 218, 249)",
-  "resultHsv": "hsv(207, 28%, 98%)",
-  "resultHsl": "hsl(207, 85%, 84%)",
+  "resultHex": "#101010",
+  "resultRgb": "rgb(16, 16, 16)",
+  "resultHsv": "hsv(0, 0%, 6%)",
+  "resultHsl": "hsl(0, 0%, 6%)",
   "colorCapturePath": "/tmp/screen-toolkit-colorpicker.png",
   "colorHistory": [
+    "#101010",
+    "#010409",
     "#B3DAF9",
     "#00324F"
-  ]
+  ],
+  "detectedRecorder": "wf-recorder",
+  "paletteColors": []
 }
